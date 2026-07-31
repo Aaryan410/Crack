@@ -1,15 +1,13 @@
 import database
-import pyfiglet
 import random
+from session.interview import InterviewSession
 
 
 # Printing UI
-text = pyfiglet.figlet_format("Crack", font = "standard", width = 200)
-text1 = pyfiglet.figlet_format("AI Interview Coach", font = "standard", width = 100)
 
 print('==========================================================================================')
-print(text.rstrip())
-print(text1.rstrip())
+print("Crack")
+print("AI Interview Coach")
 print('==========================================================================================')
 
 # Asking for roles, no. of questions and difficulty
@@ -38,27 +36,35 @@ if number_of_questions > len(filtered_questions):
 # How many Questions?
 selected_questions = random.sample(filtered_questions, number_of_questions)
 
-# Storing answers
-answers = []
-
 # Printing questions
+session = InterviewSession(
+    user_role,
+    selected_difficulty,
+    selected_questions
+)
 
-for index, question in enumerate(selected_questions, start = 1):
+session.start()
+
+while True:
+
+    question = session.next_question()
+    
+    if question is None:
+        break
 
     print('=' * 40)
-    print(f"Question {index}/{number_of_questions}")
+    print(f"Question {session.current_index + 1}/{number_of_questions}")
     print('=' * 40)
 
     print(question["question"])
-    print()
 
-    print("Difficulty:", question["difficulty"].title())
-    print()
-    
     answer = input("Answer: ")
-    print()
-    answers.append(answer)
 
+    session.submit_answer(answer)
+
+session.finish()
+    
+print(session.time_taken)
 print("Interview Complete!")
 print(f"Questions Answered: {number_of_questions}")
 
