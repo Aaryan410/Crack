@@ -63,8 +63,10 @@ while True:
     session.submit_answer(answer)
 
 session.finish()
+
+time_taken = session.ended_at - session.started_at
     
-print(session.time_taken.total_seconds(), 2)
+print(round(time_taken.total_seconds(), 2))
 print("Interview Complete!")
 print(f"Questions Answered: {number_of_questions}")
 

@@ -22,12 +22,12 @@ class InterviewSession:
 
     def next_question(self):
 
-        self.question_started_at = datetime.datetime.now()
-
         if self.current_index == len(self.questions):
             return None
-        else:
-            return self.questions[self.current_index]
+
+        self.question_started_at = datetime.datetime.now()
+        
+        return self.questions[self.current_index]
 
 
     def submit_answer(self, answer):
