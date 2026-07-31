@@ -64,7 +64,7 @@ while True:
 
 session.finish()
     
-print(session.time_taken)
+print(session.time_taken.total_seconds(), 2)
 print("Interview Complete!")
 print(f"Questions Answered: {number_of_questions}")
 
