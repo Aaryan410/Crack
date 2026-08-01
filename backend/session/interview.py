@@ -40,6 +40,7 @@ class InterviewSession:
         response = {
             "time_taken": round(time_taken.total_seconds(), 2),
             "question_id": current_question["id"],
+            "question": current_question["question"],
             "answer": answer,
         }
 
