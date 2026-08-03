@@ -1,6 +1,7 @@
 import database
 import random
 from session.interview import InterviewSession
+from ai.evaluator import evaluate
 
 
 # Printing UI
@@ -64,12 +65,10 @@ while True:
 
 session.finish()
 
+evaluation = evaluate(session)
+
 time_taken = session.ended_at - session.started_at
     
 print(round(time_taken.total_seconds(), 2))
 print("Interview Complete!")
 print(f"Questions Answered: {number_of_questions}")
-
-
-
-

@@ -4,7 +4,7 @@ from pathlib import Path
 
 def load_questions(role):
 
-    role_dir = Path("questions") / role
+    role_dir = Path(__file__).parent / "questions" / role
 
     json_files = list(role_dir.glob("*.json"))
 
