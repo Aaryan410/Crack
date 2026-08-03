@@ -1,4 +1,4 @@
-from prompt.builder import build_prompt
+from prompt.builder import build_prompt, build_report_prompt
 from ai.client import send_prompt
 import json
 
@@ -14,7 +14,6 @@ def evaluate(session):
 
     llm_response = send_prompt(prompt)
 
-    llm_response = send_prompt(prompt)
     llm_response = llm_response.replace("```json", "")
     llm_response = llm_response.replace("```", "")
     llm_response = llm_response.strip()
@@ -35,3 +34,24 @@ def evaluate(session):
         print("Invalid JSON received from Claude:")
         print(e)
         return None
+
+
+def evaluate_report(session):
+    overall_score = round(
+        sum(answer["score"] for answer in session.answers) /
+        len(session.answers)
+    )
+
+    prompt = build_report_prompt(session)
+
+    llm_response = send_prompt(prompt)
+
+    llm_response = llm_response.replace("```json", "")
+    llm_response = llm_response.replace("```", "")
+    llm_response = llm_response.strip()
+
+    report = json.loads(llm_response)
+
+    report["overall_score"] = overall_score
+
+    return report

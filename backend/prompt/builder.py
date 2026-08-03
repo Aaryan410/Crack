@@ -41,6 +41,27 @@ def build_report_prompt(session):
     You already scored each answer individually. Your job now is to synthesize
     an overall performance summary from those scores - do not re-grade individual answers.
 
+    Based on the above, return ONLY this JSON.
+
+    Rules:
+
+    - Strengths MUST contain only positive aspects.
+    - Weaknesses MUST contain only genuine gaps, mistakes, or missed depth - never
+      a strength restated, reworded, or copied into the weaknesses list.
+    - Before writing the weaknesses array, check each entry against the strengths
+      array, If an entry says the same thing as a strength (even reworded), delete
+      it from weaknesses.
+    - It is CORRECT and EXPECTED for weaknesses to be shorter than  strengths, or
+      empty, when the candidate performed well. A strong candidate should often
+      have 0-1 weaknesses and 3-4 strengths, Do not pad weaknesses to match the
+      length of strengths.
+    - If you cannot find a genuine, specific weakness, return an empty list: []    
+      Do NOT reuse, copy, or repurpose a strength to fill this list.
+    - If the candidate has only minor weaknesses is empty, recommendations may focus on going further/deeper rather
+      than fixing a gap.
+    - Return valid JSON only.
+    
+
     Role: {session.role}
     Difficulty: {session.difficulty}
     Questions Asked: {len(session.answers)}
@@ -59,7 +80,6 @@ def build_report_prompt(session):
         Based on the above, return ONLY this JSON, no markdown, no commentary:
 
         {
-            "overall_score": 0,
             "summary": "",
             "technical_accuracy": 0,
             "depth_of_understanding": 0,
@@ -74,7 +94,8 @@ def build_report_prompt(session):
 
     Keep summary to 2-3 sentences. Keep each strengths/weaknesses/recommendations
     entry to a single short sentence. Aim for a concise, high-signal report, not
-    an exhaustive one.
+    an exhaustive one. 
+
     """
 
     return prompt

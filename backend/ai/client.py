@@ -20,7 +20,7 @@ def send_prompt(prompt):
                 "content": prompt
             }
         ],
-        max_tokens = 500
+        max_tokens = 8000
     )
 
     return response.choices[0].message.content
