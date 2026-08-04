@@ -1,0 +1,16 @@
+{
+    "role": "ai engineer",
+    "difficulty": "easy",
+    "date": "2026-08-04T22:49:52.193882",
+    "overall_score": 95,
+    "summary": "The candidate delivered a clear and accurate answer explaining the purpose of train/test splits, covering generalization and unbiased evaluation effectively. The response demonstrated solid foundational understanding for an easy-difficulty question, with only minor room for additional depth.",
+    "answers": [
+        {
+            "question": "What is the purpose of splitting a dataset into training and testing sets?",
+            "answer": "Splitting a dataset into training and testing sets is essential in machine learning to evaluate how well a model generalizes to unseen data and to prevent overfitting. The model learns patterns and adjusts its parameters using the training set, while the testing set acts as an unbiased benchmark that simulates real-world performance on new inputs. By keeping the test data completely separate during the training phase, data scientists can accurately detect whether a model has truly learned underlying trends or merely memorized the training examples.",
+            "score": 95,
+            "feedback": "Clear, accurate, and well-articulated answer covering generalization, overfitting prevention, and unbiased evaluation. Could briefly mention validation sets or cross-validation for a more complete picture.",
+            "ideal_answer_summary": "Training set is used to fit model parameters, while the held-out test set evaluates generalization to unseen data and detects overfitting."
+        }
+    ]
+}

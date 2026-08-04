@@ -37,7 +37,7 @@ def evaluate(session):
 
 
 def evaluate_report(session):
-    overall_score = round(
+    overall_score = round (
         sum(answer["score"] for answer in session.answers) /
         len(session.answers)
     )

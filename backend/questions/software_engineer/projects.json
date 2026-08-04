@@ -2,52 +2,52 @@
     "projects": [
         {
             "id": "SE-PJ-001",
-            "diffculty": "medium",
+            "difficulty": "medium",
             "question": "Describe your project architecture."
         },
         {
             "id": "SE-PJ-002",
-            "diffculty": "medium",
+            "difficulty": "medium",
             "question": "What challenges did you face while building your project?"
         },
         {
             "id": "SE-PJ-003",
-            "diffculty": "medium",
+            "difficulty": "medium",
             "question": "How would you scale your project?"
         },
         {
             "id": "SE-PJ-004",
-            "diffculty": "medium",
+            "difficulty": "medium",
             "question": "What would you improve if you rebuilt the project today?"
         },
         {
             "id": "SE-PJ-005",
-            "diffculty": "medium",
+            "difficulty": "medium",
             "question": "How did you test your application?"
         },
         {
             "id": "SE-PJ-006",
-            "diffculty": "hard",
+            "difficulty": "hard",
             "question": "How would your architecture change if one million users started using your application tomorrow?"
         },
         {
             "id": "SE-PJ-007",
-            "diffculty": "hard",
+            "difficulty": "hard",
             "question": "What trade-offs did you make while building your project?"
         },
         {
             "id": "SE-PJ-008",
-            "diffculty": "hard",
+            "difficulty": "hard",
             "question": "How did you optimize your application's performance?"
         },
         {
             "id": "SE-PJ-009",
-            "diffculty": "hard",
+            "difficulty": "hard",
             "question": "What security vulnerabilities did you consider?"
         },
         {
             "id": "SE-PJ-010",
-            "diffculty": "hard",
+            "difficulty": "hard",
             "question": "If your production server suddenly crashed, how would you investigate it?"
         }
     ]

@@ -2,156 +2,156 @@
     "software_engineering": [
         {
             "id": "SE-SE-001",
-            "diffculty": "easy",
+            "difficulty": "easy",
             "question": "What is SDLC?"
         },
         {
             "id": "SE-SE-002",
-            "diffculty": "easy",
+            "difficulty": "easy",
             "question": "Explain Agile methodology."
         },
         {
             "id": "SE-SE-003",
-            "diffculty": "easy",
+            "difficulty": "easy",
             "question": "What is Scrum?"
         },
         {
             "id": "SE-SE-004",
-            "diffculty": "easy",
+            "difficulty": "easy",
             "question": "Waterfall vs Agile."
         },
         {
             "id": "SE-SE-005",
-            "diffculty": "easy",
+            "difficulty": "easy",
             "question": "Why is documentation important?"
         },
         {
             "id": "SE-SE-006",
-            "diffculty": "easy",
+            "difficulty": "easy",
             "question": "What is code reusability?"
         },
         {
             "id": "SE-SE-007",
-            "diffculty": "easy",
+            "difficulty": "easy",
             "question": "Explain modular programming."
         },
         {
             "id": "SE-SE-008",
-            "diffculty": "easy",
+            "difficulty": "easy",
             "question": "What is code review?"
         },
         {
             "id": "SE-SE-009",
-            "diffculty":"easy",
+            "difficulty":"easy",
             "question": "Why should code be readable?"
         },
         {
             "id": "SE-SE-010",
-            "diffculty": "easy",
+            "difficulty": "easy",
             "question": "What is technical debt?"
         },
 
 
         {
             "id": "SE-SE-011",
-            "diffculty": "medium",
+            "difficulty": "medium",
             "question": "Explain SOLID principles."
         },
         {
             "id": "SE-SE-012",
-            "diffculty": "medium",
+            "difficulty": "medium",
             "question": "What is DRY?"
         },
         {
             "id": "SE-SE-013",
-            "diffculty": "medium",
+            "difficulty": "medium",
             "question": "What is KISS?"
         },
         {
-                "id": "SE-SE-014",
-                "diffculty": "medium",
-                "question": "What is YAGNI?"
+            "id": "SE-SE-014",
+            "difficulty": "medium",
+            "question": "What is YAGNI?"
         },
         {
             "id": "SE-SE-015",
-            "diffculty": "medium",
+            "difficulty": "medium",
             "question": "Explain coupling and cohesion."
         },
         {
             "id": "SE-SE-016",
-            "diffculty": "medium",
+            "difficulty": "medium",
             "question": "What are design patterns?"
         },
         {
             "id": "SE-SE-017",
-            "diffculty": "medium",
+            "difficulty": "medium",
             "question": "Explain MVC architecture."
         },
         {
             "id": "SE-SE-018",
-            "diffculty": "medium",
+            "difficulty": "medium",
             "question": "What is dependency injection?"
         },
         {
             "id": "SE-SE-019",
-            "diffculty": "medium",
+            "difficulty": "medium",
             "question": "What is continuous integration?"
         },
         {
             "id": "SE-SE-020",
-            "diffculty": "medium",
+            "difficulty": "medium",
             "question": "What is continuous deployment?"
         },
 
 
         {
             "id": "SE-SE-021",
-            "diffculty": "hard",
+            "difficulty": "hard",
             "question": "Monolith vs Microservices."
         },
         {
             "id": "SE-SE-022",
-            "diffculty": "hard",
+            "difficulty": "hard",
             "question": "Explain Event-Driven Architecture."
         },
         {
             "id": "SE-SE-023",
-            "diffculty": "hard",
+            "difficulty": "hard",
             "question": "Explain Domain-Driven Design."
         },
         {
             "id": "SE-SE-024",
-            "diffculty": "hard",
+            "difficulty": "hard",
             "question": "What is eventual consistency?"
         },
         {
             "id": "SE-SE-025",
-            "diffculty": "hard",
+            "difficulty": "hard",
             "question": "Explain CQRS."
         },
         {
             "id": "SE-SE-026",
-            "diffculty": "hard",
+            "difficulty": "hard",
             "question": "What is service discovery?"
         },
         {
             "id": "SE-SE-027",
-            "diffculty": "hard",
+            "difficulty": "hard",
             "question": "Explain distributed systems."
         },
         {
             "id": "SE-SE-028",
-            "diffculty": "hard",
+            "difficulty": "hard",
             "question": "How would you design maintainable software?"
         },
         {
             "id": "SE-SE-029",
-            "diffculty": "hard",
+            "difficulty": "hard",
             "question": "Explain clean architecture."
         },
         {
             "id": "SE-SE-030",
-            "diffculty": "hard",
+            "difficulty": "hard",
             "question": "How do you manage technical debt in a large project?"
         }
     ]
