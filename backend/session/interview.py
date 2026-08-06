@@ -3,11 +3,11 @@ import datetime
 
 class InterviewSession:
 
-    def __init__(self, role, difficulty, questions):
+    def __init__(self, role, difficulty):
         self.role = role
         self.difficulty = difficulty
-        self.questions = questions
 
+        self.current_question = None
         self.current_index = 0
         self.answers = []
         self.started_at = None
@@ -20,18 +20,9 @@ class InterviewSession:
 
         self.started_at = datetime.datetime.now()
 
-    def next_question(self):
-
-        if self.current_index == len(self.questions):
-            return None
-
-        self.question_started_at = datetime.datetime.now()
-        
-        return self.questions[self.current_index]
-
 
     def submit_answer(self, answer):
-        current_question = self.questions[self.current_index]
+        current_question = self.current_question
 
         current_time = datetime.datetime.now()
 

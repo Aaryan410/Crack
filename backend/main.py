@@ -1,10 +1,8 @@
-import database
-import random
 import json
 from rich import print
 from pyfiglet import Figlet
 from pathlib import Path
-from datetime import datetime
+import datetime
 from session.interview import InterviewSession
 from ai.evaluator import evaluate, evaluate_report 
 from engine.interview_engine import InterviewEngine
@@ -21,49 +19,31 @@ print('=' * 40)
 
 # Asking for roles, no. of questions and difficulty
 user_role = input("Role: ")
-selected_difficulty = input("Difficulty: ")
-number_of_questions = int(input("Number of Questions: "))
 
-# Role and topics
-role_folder = user_role.replace(" ", "_").lower()
-
-# Accessing the Data
-questions = database.load_questions(role_folder)
-
-# Filtering questions by difficulty 
-filtered_questions = []
-
-for question in questions:
-    if question['difficulty'] == selected_difficulty:
-        filtered_questions.append(question)
-
-# Error handling
-if number_of_questions > len(filtered_questions):
-    print("Not enough questions available")
-    exit()
-
-# How many Questions?
-selected_questions = random.sample(filtered_questions, number_of_questions)
+engine = InterviewEngine(user_role)
 
 # Printing questions
 session = InterviewSession(
     user_role,
-    selected_difficulty,
-    selected_questions
+    "adaptive"
 )
 
 session.start()
 
-while True:
+while not engine.should_end():
 
-    question = session.next_question()
-    
+    question = engine.get_next_question()
+
     if question is None:
         break
 
+    session.current_question = question
+
+    session.question_started_at = datetime.datetime.now()
+
     print()
     print('=' * 40)
-    print(f"Question {session.current_index + 1}/{number_of_questions}")
+    print(f"Question {engine.questions_asked}")
     print('=' * 40)
     
     print(question['question'])
@@ -73,6 +53,8 @@ while True:
     session.submit_answer(answer)
 
     evaluation = evaluate(session)
+
+    engine.update(evaluation)
 
 session.finish()
 
@@ -133,16 +115,18 @@ time_taken = session.ended_at - session.started_at
     
 print(round(time_taken.total_seconds(), 2))
 print("Interview Complete!")
-print(f"Questions Answered: {number_of_questions}")
+print(f"Questions Answered: {engine.questions_asked}")
 
-now = datetime.now()
+now = datetime.datetime.now()
 
 history = {
     "role": user_role,
-    "difficulty": selected_difficulty,
     "date": now.isoformat(),
     "overall_score": report['overall_score'],
     "summary": report['summary'],
+    "questions_answered": engine.questions_asked,
+    "final_stage": engine.current_difficulty,
+    "time_taken": round(time_taken.total_seconds(), 2),
     "answers": [
         {
             "question": answer['question'],
