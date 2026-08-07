@@ -54,11 +54,16 @@ while not engine.should_end():
 
     evaluation = evaluate(session)
 
+    if evaluation is None:
+        print("[yellow]Couldn't get a score for that answer - its saved, moving on.[/yellow]")
+
     engine.update(evaluation)
 
 session.finish()
 
 print()
+if engine.pool_exhausted:
+    print("[yellow]Ran out of questions at this difficulty - wrapping with what we have.[/yellow]")
 print("Evaluating answers........")
 print()
 

@@ -8,7 +8,6 @@ class InterviewSession:
         self.difficulty = difficulty
 
         self.current_question = None
-        self.current_index = 0
         self.answers = []
         self.started_at = None
         self.ended_at = None

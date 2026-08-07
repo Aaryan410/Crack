@@ -40,6 +40,10 @@ class InterviewEngine:
 
         self.interview_finished = False
 
+        self.pool_exhausted = False
+
+        self.last_evaluation_failed = False
+
 
         for question in questions:
             if question["difficulty"] == "easy":
@@ -67,6 +71,7 @@ class InterviewEngine:
         pool = pools[self.current_difficulty]
 
         if not pool:
+            self.pool_exhausted = True
             self.interview_finished = True
             return None
 
@@ -77,6 +82,12 @@ class InterviewEngine:
 
 
     def update(self, evaluation):
+
+        if evaluation is None or "score" not in evaluation:
+            self.last_evaluation_failed = True
+            return
+
+        self.last_evaluation = False
 
         self.stage_scores.append(evaluation["score"])
 
