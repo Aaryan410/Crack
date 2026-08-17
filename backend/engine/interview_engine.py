@@ -1,5 +1,4 @@
-import database
-from ai.evaluator import evaluate
+from backend import database
 import random
 
 EASY_MIN_QUESTIONS = 2
