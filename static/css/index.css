@@ -225,6 +225,10 @@ body {
     color: #A78BFA;
 }
 
+.role-card input {
+    display: none;
+}
+
 @media (max-width: 1024px) {
     .role-grid {
         grid-template-columns: repeat(2, 1fr);

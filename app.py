@@ -8,7 +8,10 @@ def home():
 
 @app.route("/start", methods = ["POST"])
 def start():
-    ...
+    role = request.form.get("role")
+    print(role)
+
+    return render_template("interview.html", role = role)
 
 if __name__ == "__main__":
     app.run(debug=True)

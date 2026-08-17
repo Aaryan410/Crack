@@ -33,85 +33,101 @@
             </header>
 
             <main class = "main">
-                <h2 class = "section-label">Choose your role</h2>
 
-                <div class = "role-grid">
+                <form action = "/start" method = "POST">
 
-                    <!-- ai engineer -->
-                    <div class = "role-card">
-                        <div class = "icon"><div class = "icon-label">AI</div></div>
-                        <div class = "title">AI engineer</div>
-                        <div class = "desc">APIs, database, system design</div>
+                    <h2 class = "section-label">Choose your role</h2>
+
+                    <div class = "role-grid">
+
+                        <!-- ai engineer -->
+                        <label class = "role-card">
+                            <input type = "radio" name = "role" value = "ai_engineer">
+                            <div class = "icon"><div class = "icon-label">AI</div></div>
+                            <div class = "title">AI engineer</div>
+                            <div class = "desc">APIs, database, system design</div>
+                        </label>
+
+                        <!-- backend dev -->
+                        <label class = "role-card">
+                            <input type = "radio" name = "role" value = "backend_developer">
+                            <div class = "icon"><div class = "icon-label">BD</div></div>
+                            <div class = "title">Backend Developer</div>
+                            <div class = "desc">APIs, database, system design</div>
+                        </label>
+
+                        <!-- devops engineer -->
+                        <label class = "role-card">
+                            <input type = "radio" name = "role" value = "devops_engineer">
+                            <div class = "icon"><div class = "icon-label">DO</div></div>
+                            <div class = "title">DevOps engineer</div>
+                            <div class = "desc">CI/CD, automation, observability</div>
+                        </label>
+
+                        <!-- cybersecurity analyst -->
+                        <label class = "role-card">
+                            <input type = "radio" name = "role" value = "cybersecurity_analyst">
+                            <div class = "icon"><div class = "icon-label">CS</div></div>
+                            <div class = "title">Cybersecurity analyst</div>
+                            <div class = "desc">Threats, security ops, incident response</div>
+                        </label>
+
+                        <!-- data scientist -->
+                        <label class = "role-card">
+                            <input type = "radio" name = "role" value = "data_scientist">
+                            <div class = "icon"><div class = "icon-label">DS</div></div>
+                            <div class = "title">Data scientist</div>
+                            <div class = "desc">Statistics, modeling, experimentation</div>
+                        </label>
+
+                        <!-- cloud engineer -->
+                        <label class = "role-card">
+                            <input type = "radio" name = "role" value = "cloud_engineer">
+                            <div class = "icon"><div class = "icon-label">CE</div></div>
+                            <div class = "title">Cloud engineer</div>
+                            <div class = "desc">Infrastructure, scaling, cloud platforms </div>
+                        </label>
+
+                        <!-- frontend dev -->
+                        <label class = "role-card">
+                            <input type = "radio" name = "role" value = "frontend_developer">
+                            <div class = "icon"><div class = "icon-label">FE</div></div>
+                            <div class = "title">Frontend developer</div>
+                            <div class = "desc">UI systems, performance, accessibility</div>
+                        </label>
+
+                        <!-- full stack dev -->
+                        <label class = "role-card">
+                            <input type = "radio" name = "role" value = "full_stack_developer">
+                            <div class = "icon"><div class = "icon-label">FS</div></div>
+                            <div class = "title">Full stack developer</div>
+                            <div class = "desc">End-to-end product engineering</div>
+                        </label>
+
+                        <!-- ml engineer -->
+                        <label class = "role-card">
+                            <input type = "radio" name = "role" value = "machine_learning_engineer">
+                            <div class = "icon"><div class = "icon-label">ML</div></div>
+                            <div class = "title">ML engineer</div>
+                            <div class = "desc">Model training, pipelines, MLOps</div>
+                        </label>
+
+                        <!-- software engineer -->
+                        <label class = "role-card">
+                            <input type = "radio" name = "role" value = "software_engineer">
+                            <div class = "icon"><div class = "icon-label">SE</div></div>
+                            <div class = "title">Software engineer</div>
+                            <div class = "desc">Core CS, algorithms, architecture</div>
+                        </label>
                     </div>
 
-                    <!-- backend dev -->
-                    <div class = "role-card">
-                        <div class = "icon"><div class = "icon-label">BD</div></div>
-                        <div class = "title">Backend Developer</div>
-                        <div class = "desc">APIs, database, system design</div>
-                    </div>
+                    
+                    <button type = "submit" class = "cta">
+                        <span class = "cta-black">Start </span><span class = "cta-violet">interview</span>
+                    </button>
 
-                    <!-- devops engineer -->
-                    <div class = "role-card">
-                        <div class = "icon"><div class = "icon-label">DO</div></div>
-                        <div class = "title">DevOps engineer</div>
-                        <div class = "desc">CI/CD, automation, observability</div>
-                    </div>
+                </form>
 
-                    <!-- cybersecurity analyst -->
-                    <div class = "role-card">
-                        <div class = "icon"><div class = "icon-label">CS</div></div>
-                        <div class = "title">Cybersecurity analyst</div>
-                        <div class = "desc">Threats, security ops, incident response</div>
-                    </div>
-
-                    <!-- data scientist -->
-                    <div class = "role-card">
-                        <div class = "icon"><div class = "icon-label">DS</div></div>
-                        <div class = "title">Data scientist</div>
-                        <div class = "desc">Statistics, modeling, experimentation</div>
-                    </div>
-
-                    <!-- cloud engineer -->
-                    <div class = "role-card">
-                        <div class = "icon"><div class = "icon-label">CE</div></div>
-                        <div class = "title">Cloud engineer</div>
-                        <div class = "desc">Infrastructure, scaling, cloud platforms </div>
-                    </div>
-
-                    <!-- frontend dev -->
-                    <div class = "role-card">
-                        <div class = "icon"><div class = "icon-label">FE</div></div>
-                        <div class = "title">Frontend developer</div>
-                        <div class = "desc">UI systems, performance, accessibility</div>
-                    </div>
-
-                    <!-- full stack dev -->
-                    <div class = "role-card">
-                        <div class = "icon"><div class = "icon-label">FS</div></div>
-                        <div class = "title">Full stack developer</div>
-                        <div class = "desc">End-to-end product engineering</div>
-                    </div>
-
-                    <!-- ml engineer -->
-                    <div class = "role-card">
-                        <div class = "icon"><div class = "icon-label">ML</div></div>
-                        <div class = "title">ML engineer</div>
-                        <div class = "desc">Model training, pipelines, MLOps</div>
-                    </div>
-
-                    <!-- software engineer -->
-                    <div class = "role-card">
-                        <div class = "icon"><div class = "icon-label">SE</div></div>
-                        <div class = "title">Software engineer</div>
-                        <div class = "desc">Core CS, algorithms, architecture</div>
-                    </div>
-                </div>
-
-                
-                <button type = "submit" class = "cta">
-                    <span class = "cta-black">Start</span><span class = "cta-violet"> interview</span>
-                </button>
             </main>
 
         </div>
