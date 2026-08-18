@@ -89,7 +89,8 @@ body {
 .question-tag {
     background: #383050;
     color: #FFF;
-    font-size: 16px;
+    font-size: 18px;
+    font-weight: 600;
     padding: 10px 18px;
     border-radius: 999px;
 }
@@ -116,8 +117,8 @@ body {
 .question-text {
     background: #383050;
     color: #FFF;
-    font-size: 24px;
-    font-weight: 500;
+    font-size: 30px;
+    font-weight: 600;
     padding: 26px 30px;
     border-radius: 20px;
     line-height: 1.4; 
@@ -135,7 +136,7 @@ body {
     font-family: 'Space Grotesk', sans-serif;
     font-size: 17px;
     line-height: 1.5;
-    resize: vertical;
+    resize: none;
     outline: none;
     transition: border-color 300ms ease, background 300ms ease;
 }

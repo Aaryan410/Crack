@@ -20,5 +20,11 @@ def start():
         question_number = 1
     )
 
+@app.route("/answer", methods = ["POST"])
+def answer():
+    answer = request.form.get("answer")
+    print(answer)
+    return "Working!"
+
 if __name__ == "__main__":
     app.run(debug=True)

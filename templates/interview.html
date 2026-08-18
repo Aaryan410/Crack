@@ -29,13 +29,17 @@
 
                 <div class = "question-text">{{ question }}</div>
 
-                <textarea class = "answer-box" placeholder = "Type your answer here..."></textarea>
+                <form method = "POST" action = "/answer">
+                    
+                    <textarea name = "answer" class = "answer-box" placeholder = "Type your answer here..."></textarea>
 
-                <div class = "bottom-row">
-                    <button class = "submit-button">
-                        <span class = "submit-black">Submit</span>
-                    </button>
-                </div>
+                    <div class = "bottom-row">
+                        <button class = "submit-button">
+                            <span class = "submit-black">Submit</span>
+                        </button>
+                    </div>
+
+                </form>
 
             </main>
             
