@@ -1,5 +1,5 @@
-from prompt.builder import build_prompt, build_report_prompt
-from ai.client import send_prompt
+from backend.prompt.builder import build_prompt, build_report_prompt
+from backend.ai.client import send_prompt
 import json
 
 def evaluate(session): 
@@ -37,10 +37,16 @@ def evaluate(session):
 
 
 def evaluate_report(session):
-    overall_score = round (
-        sum(answer["score"] for answer in session.answers) /
-        len(session.answers)
-    )
+
+    scored_answers = [a for a in session.answers if "score" in a]
+
+    if not scored_answers:
+        overall_score = 0
+    else:
+        overall_score = round (
+            sum(answer["score"] for answer in session.answers) /
+            len(session.answers)
+        )
 
     prompt = build_report_prompt(session)
 

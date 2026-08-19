@@ -3,7 +3,7 @@ import datetime
 
 class InterviewSession:
 
-    def __init__(self, role, difficulty):
+    def __init__(self, role, difficulty = "adaptive"):
         self.role = role
         self.difficulty = difficulty
 
@@ -25,6 +25,9 @@ class InterviewSession:
 
         current_time = datetime.datetime.now()
 
+        if self.question_started_at is None:
+            self.question_started_at = current_time
+
         time_taken = current_time - self.question_started_at
 
         response = {
@@ -36,9 +39,12 @@ class InterviewSession:
 
         self.answers.append(response)
 
-        self.current_index += 1
-
         return response
+
+
+    def set_question(self, question):
+        self.current_question = question
+        self.question_started_at = datetime.datetime.now()
 
 
     def finish(self):
