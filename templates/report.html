@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang = "en">
+    <head>
+        <meta charset = "UTF-8">
+        <meta name = "viewport" content = "width = device-width, initial-scale = 1.0">
+
+        <title>Crack - Report</title>
+
+        <link rel = "stylesheet" href = "report.css">
+        <link rel = "preconnect" href = "https://fonts.googleapis.com">
+        <link href = "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel = "stylesheet">
+    </head>
+    <body>
+        
+        <div class = "page">
+            <header class = "report-header">
+                <div class = "logo">Crack</div>
+                <h1 class = "page-title">Interview Report</h1>
+                <p class = "role-label">{{ role }} &middot; {{ questions_answered }} questions answered</p>
+            </header>
+
+            <main class = "report-body">
+
+                <section class = "score-row">
+                    <div class = "score-card score-card--primary">
+                        <div class = "score-label">Overall Performance</div>
+                        <div class = "score-value">{{ report.technical_accuracy }}</div>
+                    </div>
+                    <div class = "score-card">
+                        <div class = "score-label">Technical Accuracy</div>
+                        <div class = "score-value">{{ report.technical_accuracy }}</div>
+                    </div>
+                    <div class = "score-card">
+                        <div class = "score-label">Communication</div>
+                        <div class = "score-value">{{ report.communication }}</div>
+                    </div>
+                    <div class = "score-card">
+                        <div class = "score-label">Confidence</div>
+                        <div class = "score-value">{{ report.confidence }}</div>
+                    </div>
+                </section>
+
+                <section class = "report-section">
+                    <div class = "section-title">Summary</div>
+                    <p class = "action-text">{{ report.summary }}</p>
+                </section>
+
+                <section class = "report-section">
+                    <div class = "section-title">Strengths</div>
+                    {% if report.strengths %}
+                        <ul class = "point-list point-list-good">
+                            {% for item in report.strengths %}
+                            <li>{{ item }}</li>
+                            {% endfor %}
+                        </ul>
+                    {% else %}
+                        <p class = "section-text section-text--muted">No standout strengths for this interview.</p>
+                    {% endif %}
+                </section>
+
+                <section class = "report-section">
+                    <div class = "section-title">Weaknesses</div>
+                    {% if report.weaknesses %}
+                        <ul class = "point-list point-list--bad">
+                            {% for item in report.weaknesses %}
+                            <li>{{ item }}</li>
+                            {% endfor %}
+                        </ul>
+                    {% else %}
+                        <p class = "section-text section-text--muted">No significant weaknesses identified - strong, consistent performance</p>
+                    {% endif %}
+                </section>
+
+                <section class = "report-section">
+                    <div class = "section-title">Recommendations</div>
+                    {% if report.recommendations %}
+                        <ul class = "point-list point-list--rec">
+                            {% for item in report.recommendations %}
+                            <li>{{ item }}</li>
+                        </ul>
+                    {% else %}
+                        <p class = "section-text section-text--muted">Keep practicing at this level to build further depth</p>
+                    {% endif %}
+                </section>
+
+            </main>
+
+            <footer class = "report-footer">
+                <a href = "#" class = "footer-link footer-link--download">Download Interview</a>
+                <a href = "/" class = "footer-link footer-link--restart">Take Another Interview</a>
+            </footer>
+
+        </div>
+
+    </body>
+</html>
