@@ -109,9 +109,12 @@ def report():
 
     report_data = session.report
 
+    display_role = session.role.replace("_", " ").title()
+    display_role = display_role.replace("Ai", "AI").replace("Ml", "ML")
+
     return render_template (
         "report.html",
-        role = session.role,
+        role = display_role,
         report = report_data,
         questions_answered = engine.questions_asked,
         answers = session.answers
