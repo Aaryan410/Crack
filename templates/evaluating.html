@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset = "UTF-8">
+        <meta name = "viewport" content = "width = device-width, initial-scale = 1.0">
+        <title>Crack - Evaluating</title>
+
+        <link rel = "stylesheet" href = "{{ url_for('static', filename = 'css/evaluating.css') }}">
+        <link rel = "preconnect" href = "https://fonts.googleapis.com">
+        <link href = "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel = "stylesheet">
+    </head>
+    <body>
+        <div class = "page">
+            <div class = "logo">Crack</div>
+            <div class = "spinner" id = "spinner"></div>
+            <p class = "loading-text">Evaluating your response...</p>
+        </div>
+
+        <script>
+            const spinner = document.getElementById('spinner')
+            let angle = 0;
+
+            function rotate() {
+                angle = (angle + 4) % 360;
+                spinner.style.transform = `rotate(${angle}deg)`;
+                requestAnimationFrame(rotate);
+            }
+            rotate();
+
+            window.onload = () => {
+                setTimeout(() => {
+                    window.location.href = "/report";
+                }, 2000);
+            }
+
+        </script>
+
+    </body>
+</html>

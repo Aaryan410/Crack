@@ -9,10 +9,13 @@ app.secret_key = "change-this-to-a-real-secret-before-deploying"
 active_interviews = {}
 
 def get_current_interview():
+
     id = flask_session.get("interview")
+
     if id is None or id not in active_interviews:
-         return None, None
-    return active_interviews[id]["engine"], active_interviews[id]["session"]
+        return None, None
+
+    return (active_interviews[id]["engine"], active_interviews[id]["session"])
 
 @app.route("/")
 def home():
@@ -58,8 +61,8 @@ def answer():
     engine.update(evaluation)
 
     if engine.should_end():
-        session.finsih()
-        return redirect("/report")
+        session.finish()
+        return redirect("/evaluating")
 
     next_question = engine.get_next_question()
 
@@ -77,20 +80,41 @@ def answer():
     )
 
 
+@app.route("/evaluating", methods = ["GET"])
+def evaluating():
+    engine, session = get_current_interview()
+
+    if engine is None or session is None:
+        return redirect("/")
+
+    if session.report is None:
+        session.report = evaluate_report(session)
+
+    return render_template("evaluating.html")
+
+
 @app.route("/report")
 def report():
+
     engine, session = get_current_interview()
+
+    print("ENGINE:", engine)
+    print("SESSION:", session)
+
+    if session.report is None:
+        return redirect("/evaluting")
 
     if engine is None:
         return redirect("/")
 
-    report_data = evaluate_report(session)
+    report_data = session.report
 
     return render_template (
         "report.html",
         role = session.role,
         report = report_data,
-        questions_answer = engine.questions_asked
+        questions_answered = engine.questions_asked,
+        answers = session.answers
     )
 
 

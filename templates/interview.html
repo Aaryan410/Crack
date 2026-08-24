@@ -8,6 +8,8 @@
         <link rel = "stylesheet" href = "{{ url_for('static', filename = 'css/interview.css') }}">
         <link rel = "preconnect" href = "https://fonts.googleapis.com">
         <link href = "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel = "stylesheet">
+
+        <script src = "{{ url_for('static', filename = 'js/timer.js') }}"></script>
     </head>
     <body>
         
@@ -29,7 +31,7 @@
 
                 <div class = "question-text">{{ question.question }}</div>
 
-                <form method = "POST" action = "/answer">
+                <form id = "answer-form" method = "POST" action = "/answer">
                     
                     <textarea name = "answer" class = "answer-box" placeholder = "Type your answer here..."></textarea>
 

@@ -6,6 +6,7 @@ class InterviewSession:
     def __init__(self, role, difficulty = "adaptive"):
         self.role = role
         self.difficulty = difficulty
+        self.report = None
 
         self.current_question = None
         self.answers = []

@@ -149,6 +149,16 @@ body {
     box-shadow: 0 12px 30px rgba(74, 46, 122, 0.45);
 }
 
+.role-card:has(input:checked) {
+    background: #4A2E7A;
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(74, 46, 122, 0.45);
+}
+
+.role-card:has(input:checked) .icon {
+    opacity: 1;
+}
+
 .icon {
     width: 49px;
     height: 44px;

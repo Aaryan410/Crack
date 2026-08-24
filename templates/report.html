@@ -21,7 +21,7 @@
 
             <main class = "report-body">
 
-                <section class = "score-row">
+                <div class = "score-row">
                     <div class = "score-card score-card--primary">
                         <div class = "score-label">Overall Performance</div>
                         <div class = "score-value">{{ report.technical_accuracy }}</div>
@@ -38,11 +38,11 @@
                         <div class = "score-label">Confidence</div>
                         <div class = "score-value">{{ report.confidence }}</div>
                     </div>
-                </section>
+                </div>
 
                 <section class = "report-section">
                     <div class = "section-title">Summary</div>
-                    <p class = "action-text">{{ report.summary }}</p>
+                    <p class = "section-text">{{ report.summary }}</p>
                 </section>
 
                 <section class = "report-section">
@@ -77,6 +77,7 @@
                         <ul class = "point-list point-list--rec">
                             {% for item in report.recommendations %}
                             <li>{{ item }}</li>
+                            {% endfor %}
                         </ul>
                     {% else %}
                         <p class = "section-text section-text--muted">Keep practicing at this level to build further depth</p>
@@ -86,7 +87,6 @@
             </main>
 
             <footer class = "report-footer">
-                <a href = "#" class = "footer-link footer-link--download">Download Interview</a>
                 <a href = "/" class = "footer-link footer-link--restart">Take Another Interview</a>
             </footer>
 

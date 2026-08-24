@@ -12,7 +12,8 @@ html, body {
 body {
     font-family: 'Space Grotesk', sans-serif;
     background: #201A2E;
-    overflow: hidden;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .page {
@@ -52,12 +53,19 @@ body {
 
 .report-body {
     flex: 1;
-    max-width: 900px;
+    max-width: 1200px;
     width: 100%;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
     gap: 16px;
+}
+
+.score-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+    margin-bottom: 24px;
 }
 
 .score-card {
@@ -148,7 +156,7 @@ body {
 }
 
 .report-footer {
-    max-width: 900px;
+    max-width: 1200px;
     width: 100%;
     margin: 48px auto 0;
     display: flex;
