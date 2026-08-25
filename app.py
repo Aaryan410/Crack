@@ -2,9 +2,13 @@ from backend.engine.interview_engine import InterviewEngine
 from backend.session.interview import InterviewSession
 from backend.ai.evaluator import evaluate, evaluate_report
 from flask import Flask, render_template, request, redirect, session as flask_session
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
 
 app = Flask(__name__)
-app.secret_key = "change-this-to-a-real-secret-before-deploying"
+app.secret_key = os.getenv("SECRET_KEY")
 
 active_interviews = {}
 
