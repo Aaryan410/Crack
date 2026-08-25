@@ -153,6 +153,58 @@
             "id": "SE-WBA-030",
             "difficulty": "hard",
             "question": "API security best practices."
+        },
+
+
+        {
+            "id": "SE-WBA-031",
+            "difficulty": "scenario",
+            "question": "Your Flask API works correctly for one user but becomes unreliable when hundreds of users make requests simultaneously. How would you investigate?"
+        },
+        {
+            "id": "SE-WBA-032",
+            "difficulty": "scenario",
+            "question": "A frontend sends a request to your API, but the browser reports a CORS error. How would you diagnose and fix the issue?"
+        },
+        {
+            "id": "SE-WBA-033",
+            "difficulty": "scenario",
+            "question": "A user submits a form twice because the first request appears to have failed, resulting in duplicate records. How would you prevent this?"
+        },
+        {
+            "id": "SE-WBA-034",
+            "difficulty": "scenario",
+            "question": "Your API endpoint returns sensitive information that the current user should not be able to access. How would you redesign the authorization logic?"
+        },
+        {
+            "id": "SE-WBA-035",
+            "difficulty": "scenario",
+            "question": "A frontend application needs to retrieve a large amount of data, but returning everything in one API response makes the page slow. How would you redesign the API?"
+        },
+        {
+            "id": "SE-WBA-036",
+            "difficulty": "scenario",
+            "question": "Your API is being abused by a client sending thousands of requests per minute. How would you protect the endpoint?"
+        },
+        {
+            "id": "SE-WBA-037",
+            "difficulty": "scenario",
+            "question": "Your authentication system works, but users are unexpectedly logged out after a period of inactivity. What would you investigate?"
+        },
+        {
+            "id": "SE-WBA-038",
+            "difficulty": "scenario",
+            "question": "An API returns HTTP 500 for invalid user input. What is wrong with this behavior, and how would you improve the API?"
+        },
+        {
+            "id": "SE-WBA-039",
+            "difficulty": "scenario",
+            "question": "Your frontend and backend are developed independently by different teams. How would you design the API contract so changes don't constantly break the frontend?"
+        },
+        {
+            "id": "SE-WBA-040",
+            "difficulty": "scenario",
+            "question": "Your application needs to upload large files through an API. What considerations would you make around validation, limits, storage, and reliability?"
         }
     ]
 }

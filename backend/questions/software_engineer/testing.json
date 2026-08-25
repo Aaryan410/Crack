@@ -153,6 +153,58 @@
             "id": "SE-TE-030",
             "difficulty": "hard",
             "question": "Designing a testing strategy for a large application."
+        },
+
+
+        {
+            "id": "SE-TE-031",
+            "difficulty": "scenario",
+            "question": "A bug appears in production that should have been caught by testing. How would you determine what kind of test was missing?"
+        },
+        {
+            "id": "SE-TE-032",
+            "difficulty": "scenario",
+            "question": "A test passes locally but consistently fails in CI. How would you investigate the difference?"
+        },
+        {
+            "id": "SE-TE-033",
+            "difficulty": "scenario",
+            "question": "A test passes locally but consistently fails in CI. How would you investigate the difference?"
+        },
+        {
+            "id": "SE-TE-034",
+            "difficulty": "scenario",
+            "question": "Your test suite takes 30 minutes to run and developers have started avoiding it. How would you improve the situation?"
+        },
+        {
+            "id": "SE-TE-035",
+            "difficulty": "scenario",
+            "question": "A database-dependent test is slow and unreliable because it depends on external services. How could you redesign the test?"
+        },
+        {
+            "id": "SE-TE-036",
+            "difficulty": "scenario",
+            "question": "You are testing an API that depends on a third-party payment provider. How would you test your application without making real payments?"
+        },
+        {
+            "id": "SE-TE-037",
+            "difficulty": "scenario",
+            "question": "A developer changes one function and 40 unrelated tests suddenly fail. How would you determine whether the tests or implementation are actually wrong?"
+        },
+        {
+            "id": "SE-TE-038",
+            "difficulty": "scenario",
+            "question": "Your application has excellent unit-test coverage but still has serious bugs when multiple components interact. What does this tell you?"
+        },
+        {
+            "id": "SE-TE-039",
+            "difficulty": "scenario",
+            "question": "A critical production bug cannot be reproduced locally. How would you design a test to prevent the bug from returning once you understand the cause?"
+        },
+        {
+            "id": "SE-TE-040",
+            "difficulty": "scenario",
+            "question": "You need confidence before deploying a major change to a production application. What levels or types of testing would you perform?"
         }
     ]
 }

@@ -102,6 +102,8 @@
             "difficulty": "medium",
             "question": "Explain function overloading."
         },
+
+
         {
             "id": "SE-PF-021",
             "difficulty": "hard",
@@ -151,6 +153,58 @@
             "id": "SE-PF-030",
             "difficulty": "hard",
             "question": "What are allocators in C++?"
+        },
+
+
+        {
+            "id": "SE-PF-031",
+            "difficulty": "scenario",
+            "question": "A function occasionally returns the wrong result, but only for certain inputs. How would you systematically debug it?"
+        },
+        {
+            "id": "SE-PF-032",
+            "difficulty": "scenario",
+            "question": "Your program works for normal input but crashes when users provide unexpected or empty values. How would you make it robust?"
+        },
+        {
+            "id": "SE-PF-033",
+            "difficulty": "scenario",
+            "question": "A loop processes a large dataset and takes far longer than expected. How would you identify what is causing the slowdown?"
+        },
+        {
+            "id": "SE-PF-034",
+            "difficulty": "scenario",
+            "question": "Your application has duplicated logic across several functions. How would you refactor it without changing behavior?"
+        },
+        {
+            "id": "SE-PF-035",
+            "difficulty": "scenario",
+            "question": "A program produces different results depending on the order in which data is processed. What kinds of bugs would you investigate?"
+        },
+        {
+            "id": "SE-PF-036",
+            "difficulty": "scenario",
+            "question": "You inherit a small program with no tests and unclear variable names. Before modifying it, what would you do?"
+        },
+        {
+            "id": "SE-PF-037",
+            "difficulty": "scenario",
+            "question": "A function has 12 parameters and is difficult to understand or use correctly. How would you improve its interface?"
+        },
+        {
+            "id": "SE-PF-038",
+            "difficulty": "scenario",
+            "question": "Your program works correctly with integers but produces unexpected results when decimal values are introduced. What would you investigate?"
+        },
+        {
+            "id": "SE-PF-039",
+            "difficulty": "scenario",
+            "question": "A bug disappears whenever you add debugging print statements. What might this suggest, and how would you investigate further?"
+        },
+        {
+            "id": "SE-PF-040",
+            "difficulty": "scenario",
+            "question": "You need to modify a critical function used by 20 different parts of an application. How would you make the change safely?"
         }
     ]
 }

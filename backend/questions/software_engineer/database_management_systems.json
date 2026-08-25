@@ -154,6 +154,57 @@
             "id": "SE-DBMS-030",
             "difficulty": "hard",
             "question": "Explain indexing strategies."
+        },
+
+        {
+            "id": "SE-DBMS-031",
+            "difficulty": "scenario",
+            "question": "Your application becomes significantly slower after its user count grows from 10,000 to 1 million. Database queries are now taking several seconds. How would you investigate?"
+        },
+        {
+            "id": "SE-DBMS-032",
+            "difficulty": "scenario",
+            "question": "Two users attempt to purchase the last available item at exactly the same time. How would you design the database operation to prevent both purchases from succeeding?"
+        },
+        {
+            "id": "SE-DBMS-033",
+            "difficulty": "scenario",
+            "question": "A query that used to take 50 ms now takes 5 seconds after millions of rows were added. What would you check first?"
+        },
+        {
+            "id": "SE-DBMS-034",
+            "difficulty": "scenario",
+            "question": "Your application frequently reads the same data, but that data changes only occasionally. How would you reduce database load?"
+        },
+        {
+            "id": "SE-DBMS-035",
+            "difficulty": "scenario",
+            "question": "A production database suddenly has thousands of locked rows and requests begin timing out. How would you investigate the cause?"
+        },
+        {
+            "id": "SE-DBMS-036",
+            "difficulty": "scenario",
+            "question": "You need to store users, orders, and products. How would you design the relationships between these entities?"
+        },
+        {
+            "id": "SE-DBMS-037",
+            "difficulty": "scenario",
+            "question": "Your application performs a complicated query involving five large tables and is becoming slow. How would you determine whether indexes could help?"
+        },
+        {
+            "id": "SE-DBMS-038",
+            "difficulty": "scenario",
+            "question": "A developer accidentally deletes thousands of production records. What database mechanisms and operational practices could help recover from this?"
+        },
+        {
+            "id": "SE-DBMS-039",
+            "difficulty": "scenario",
+            "question": "Your application has grown enough that a single database server is becoming a bottleneck. What scaling strategies would you consider?"
+        },
+        {
+            "id": "SE-DBMS-040",
+            "difficulty": "scenario",
+            "question": "You need to update millions of records in production, but the application must remain available. How would you safely perform the migration?"
         }
     ]
 }

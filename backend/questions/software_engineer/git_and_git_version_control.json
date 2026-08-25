@@ -153,6 +153,57 @@
             "id": "SE-GGVC-030",
             "difficulty": "hard",
             "question": "Explain sparse checkout."
+        },
+
+        {
+            "id": "SE-GGVC-031",
+            "difficulty": "scenario",
+            "question": "You are working on a feature branch and discover that main has received several important changes. How would you update your branch safely?"
+        },
+        {
+            "id": "SE-GGVC-032",
+            "difficulty": "scenario",
+            "question": "You accidentally committed an API key to a Git repository. What would you do immediately, and what would you do afterward?"
+        },
+        {
+            "id": "SE-GGVC-033",
+            "difficulty": "scenario",
+            "question": "You made several commits while experimenting, and now the branch history is messy. How would you clean it up before opening a pull request?"
+        },
+        {
+            "id": "SE-GGVC-034",
+            "difficulty": "scenario",
+            "question": "A teammate's changes conflict with yours during a merge. How would you resolve the conflict while minimizing the chance of introducing bugs?"
+        },
+        {
+            "id": "SE-GGVC-035",
+            "difficulty": "scenario",
+            "question": "You pushed a commit to a shared branch containing a serious bug. How would you handle the situation?"
+        },
+        {
+            "id": "SE-GGVC-036",
+            "difficulty": "scenario",
+            "question": "You need to work on two features simultaneously without mixing their changes. How would you structure your Git workflow?"
+        },
+        {
+            "id": "SE-GGVC-037",
+            "difficulty": "scenario",
+            "question": "A file contains local configuration that should never be committed. How would you prevent it from entering the repository?"
+        },
+        {
+            "id": "SE-GGVC-038",
+            "difficulty": "scenario",
+            "question": "Your branch accidentally contains changes from another unfinished feature. How would you separate the work?"
+        },
+        {
+            "id": "SE-GGVC-039",
+            "difficulty": "scenario",
+            "question": "A production bug was introduced somewhere in the last 50 commits. How could Git help you locate the problematic change?"
+        },
+        {
+            "id": "SE-GGVC-040",
+            "difficulty": "scenario",
+            "question": "Your team has multiple developers deploying the same application. What branching and pull-request practices would you establish to reduce integration problems?"
         }
     ]
 }

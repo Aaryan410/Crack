@@ -26,9 +26,9 @@
             "question": "What is multitasking?"
         },
         {
-                "id": "SE-OS-006",
-                "difficulty": "easy",
-                "question": "Explain virtual memory."   
+            "id": "SE-OS-006",
+            "difficulty": "easy",
+            "question": "Explain virtual memory."   
         },
         {
             "id": "SE-OS-007",
@@ -102,6 +102,8 @@
             "difficulty": "medium",
             "question": "CPU Scheduling Algorithms."
         },
+
+
         {
             "id": "SE-OS-021",
             "difficulty": "hard",
@@ -151,6 +153,58 @@
             "id": "SE-OS-030",
             "difficulty": "hard",
             "question": "How does context switching work internally?"
+        },
+
+
+        {
+            "id": "SE-OS-031",
+            "difficulty": "scenario",
+            "question": "Your application suddenly consumes nearly all available memory and eventually gets killed. How would you investigate the problem?"
+        },
+        {
+            "id": "SE-OS-032",
+            "difficulty": "scenario",
+            "question": "Your server has many CPU cores, but your application isn't getting faster as more cores are added. What could explain this?"
+        },
+        {
+            "id": "SE-OS-033",
+            "difficulty": "scenario",
+            "question": "A program works correctly on your machine but behaves differently when running on Linux in production. What OS-level differences would you investigate?"
+        },
+        {
+            "id": "SE-OS-034",
+            "difficulty": "scenario",
+            "question": "Two processes need to exchange large amounts of data efficiently. What OS-level mechanisms could you consider?"
+        },
+        {
+            "id": "SE-OS-035",
+            "difficulty": "scenario",
+            "question": "A process appears to be stuck and never finishes, while its CPU usage remains near zero. What possibilities would you investigate?"
+        },
+        {
+            "id": "SE-OS-036",
+            "difficulty": "scenario",
+            "question": "Your application opens thousands of files or network connections and eventually starts receiving 'too many open files' errors. What is happening?"
+        },
+        {
+            "id": "SE-OS-037",
+            "difficulty": "scenario",
+            "question": "Multiple processes need access to the same resource, but simultaneous access can corrupt the data. How would you prevent this?"
+        },
+        {
+            "id": "SE-OS-038",
+            "difficulty": "scenario",
+            "question": "Your application has many threads, but performance becomes worse as more threads are created. Why might this happen?"
+        },
+        {
+            "id": "SE-OS-039",
+            "difficulty": "scenario",
+            "question": "A server becomes extremely slow even though CPU usage is low. Which OS resources would you investigate?"
+        },
+        {
+            "id": "SE-OS-040",
+            "difficulty": "scenario",
+            "question": "A process crashes unexpectedly in production. What operating-system-level information would you collect to determine what happened?"
         }
     ]
 }

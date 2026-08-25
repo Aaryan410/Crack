@@ -2,7 +2,7 @@
     "computer_networks":[
         {
             "id": "SE-CN-001",
-            "difficulty": "hard",
+            "difficulty": "easy",
             "question": "What is an IP Address?"
         },
         {
@@ -153,6 +153,58 @@
             "id": "SE-CN-030",
             "difficulty": "hard",
             "question": "How does HTTPS establish a secure connection?"
+        },
+        
+
+        {
+            "id": "SE-CN-031",
+            "difficulty": "scenario",
+            "question": "Your API works perfectly on your local machine but users intermittently get 504 Gateway Timeout in production. How would you investigate the problem?"
+        },
+        {
+            "id": "SE-CN-032",
+            "difficulty": "scenario",
+            "question": "A web application becomes extremely slow only when many users connect simultaneously. CPU usage is low, but network latency is high. What could be happening?"
+        },
+        {
+            "id": "SE-CN-033",
+            "difficulty": "scenario",
+            "question": "Two services communicate successfully most of the time, but requests occasionally fail with connection resets. How would you diagnose this?" 
+        },
+        {
+            "id": "SE-CN-034",
+            "difficulty": "scenario",
+            "question": "Your application needs to transfer sensitive user data between a browser and backend server. How would you design the communication to prevent interception?"
+        },
+        {
+            "id": "SE-CN-035",
+            "difficulty": "scenario",
+            "question": "A user reports that your website works on mobile data but not on their home Wi-Fi. What would you investigate?"
+        },
+        {
+            "id": "SE-CN-036",
+            "difficulty": "scenario",
+            "question": "Your backend is receiving thousands of requests from the same IP address within a few seconds. How would you protect the service?"
+        },
+        {
+            "id": "SE-CN-037",
+            "difficulty": "scenario",
+            "question": "Your application has users around the world, but your server is located in one region. Users far away experience noticeably higher latency. How would you improve this?"
+        },
+        {
+            "id": "SE-CN-038",
+            "difficulty": "scenario",
+            "question": "A DNS change was made for your application, but some users still reach the old server while others reach the new one. Why could this happen?"
+        },
+        {
+            "id": "SE-CN-039",
+            "difficulty": "scenario",
+            "question": "You have a service that must maintain a persistent connection with thousands of clients for real-time updates. What networking approach would you choose and why?"
+        },
+        {
+            "id": "SE-CN-040",
+            "difficulty": "scenario",
+            "question": "1. Your API suddenly starts returning connection errors after traffic increases significantly. How would you determine whether the problem is your application, operating system, network, or infrastructure?"
         }
     ]
 }

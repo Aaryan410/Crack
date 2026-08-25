@@ -153,6 +153,58 @@
             "id": "SE-SE-030",
             "difficulty": "hard",
             "question": "How do you manage technical debt in a large project?"
+        },
+
+
+        {
+            "id": "SE-SE-031",
+            "difficulty": "scenario",
+            "question": "Your team is building a feature, but the requirements are ambiguous and different developers interpret them differently. How would you resolve this?" 
+        },
+        {
+            "id": "SE-SE-032",
+            "difficulty": "scenario",
+            "question": "Your team has 20 tasks marked as high priority. How would you determine what should actually be worked on first?"
+        },
+        {
+            "id": "SE-SE-033",
+            "difficulty": "scenario",
+            "question": "A feature is technically complete but difficult to maintain because the implementation is tightly coupled. What would you do?"
+        },
+        {
+            "id": "SE-SE-034",
+            "difficulty": "scenario",
+            "question": "A pull request contains 2,000 lines of changes. How would you review it effectively?"
+        },
+        {
+            "id": "SE-SE-035",
+            "difficulty": "scenario",
+            "question": "A production system has accumulated many small technical-debt issues while new features continue to be requested. How would you balance both?"
+        },
+        {
+            "id": "SE-SE-036",
+            "difficulty": "scenario",
+            "question": "Your team frequently discovers bugs only after deployment. What changes would you make to the development process?"
+        },
+        {
+            "id": "SE-SE-037",
+            "difficulty": "scenario",
+            "question": "A developer wants to rewrite a working component using a new framework because it is 'more modern.' How would you evaluate whether the rewrite is justified?"
+        },
+        {
+            "id": "SE-SE-038",
+            "difficulty": "scenario",
+            "question": "Your application needs a major feature that will take several months to complete. How would you break the work down so useful functionality can be delivered earlier?"
+        },
+        {
+            "id": "SE-SE-039",
+            "difficulty": "scenario",
+            "question": "Two engineers strongly disagree about the architecture of a new feature. How would you reach a technical decision?"
+        },
+        {
+            "id": "SE-SE-040",
+            "difficulty": "scenario",
+            "question": "Your team needs to release quickly, but skipping testing could introduce significant risk. How would you decide what testing is essential before release?"
         }
     ]
 }
