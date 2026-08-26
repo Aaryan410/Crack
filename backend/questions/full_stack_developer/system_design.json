@@ -153,6 +153,33 @@
             "id": "FSD-SD-030",
             "difficulty": "hard",
             "question": "Design Amazon."
+        },
+
+
+        {
+            "id": "FSD-SD-031",
+            "difficulty": "scenario",
+            "question": "Design a full-stack application where users can register, create profiles, and upload profile pictures. How would you structure the frontend, backend, database, and storage?"
+        },
+        {
+            "id": "FSD-SD-032",
+            "difficulty": "scenario",
+            "question": "Design a web application that allows users to create and edit documents collaboratively."
+        },
+        {
+            "id": "FSD-SD-033",
+            "difficulty": "scenario",
+            "question": "Your application suddenly becomes popular and traffic increases by 100x. How would you evolve the architecture without rewriting the entire system?"
+        },
+        {
+            "id": "FSD-SD-034",
+            "difficulty": "scenario",
+            "question": "Design a full-stack e-commerce system where users can browse products, add items to carts, and place orders safely."
+        },
+        {
+            "id": "FSD-SD-035",
+            "difficulty": "scenario",
+            "question": "Design a system where users can upload large files and later download them securely from anywhere."
         }
     ]
 }

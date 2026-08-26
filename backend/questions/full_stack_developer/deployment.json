@@ -128,6 +128,33 @@
             "id": "FSD-DT-025",
             "difficulty": "hard",
             "question": "Explain high availability."
+        },
+
+
+        {
+            "id": "FSD-DT-026",
+            "difficulty": "scenario",
+            "question": "Your application needs secrets such as database credentials and API keys in production. How would you manage them securely?"
+        },
+        {
+            "id": "FSD-DT-027",
+            "difficulty": "scenario",
+            "question": "You need to deploy database schema changes together with a new backend version without causing downtime. How would you plan the deployment?"
+        },
+        {
+            "id": "FSD-DT-028",
+            "difficulty": "scenario",
+            "question": "You need to deploy a major version of a full-stack application while keeping the current production version available during the transition. What deployment strategy would you use?"
+        },
+        {
+            "id": "FSD-DT-029",
+            "difficulty": "scenario",
+            "question": "Your application works perfectly locally but crashes immediately after being deployed. What would you check first?"
+        },
+        {
+            "id": "FSD-DT-030",
+            "difficulty": "scenario",
+            "question": "You push a new version and discover that production is serving an older version of the frontend. How would you investigate?"
         }
     ]
 }

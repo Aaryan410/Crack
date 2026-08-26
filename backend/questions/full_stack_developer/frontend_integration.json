@@ -128,6 +128,33 @@
             "id": "FSD-FI-025",
             "difficulty": "hard",
             "question": "Design a frontend that supports offline synchronization."
+        },
+
+
+        {
+            "id": "FSD-FI-026",
+            "difficulty": "scenario",
+            "question": "An API request takes several seconds, but the frontend currently shows a blank screen while waiting. How would you improve the user experience?"
+        },
+        {
+            "id": "FSD-FI-027",
+            "difficulty": "scenario",
+            "question": "A user submits a form and then refreshes the page before the backend response arrives. How would you ensure the operation isn't accidentally duplicated?"
+        },
+        {
+            "id": "FSD-FI-028",
+            "difficulty": "scenario",
+            "question": "Your frontend displays stale data even though the backend returns the correct updated value. How would you determine where the problem is?"
+        },
+        {
+            "id": "FSD-FI-029",
+            "difficulty": "scenario",
+            "question": "An API request takes several seconds, but the frontend currently shows a blank screen while waiting. How would you improve the user experience?"
+        },
+        {
+            "id": "FSD-FI-030",
+            "difficulty": "scenario",
+            "question": "Your frontend displays stale data even though the backend returns the correct updated value. How would you determine where the problem is?"
         }
     ]
 }

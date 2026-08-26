@@ -128,6 +128,33 @@
             "id": "FSD-BI-025",
             "difficulty": "hard",
             "question": "Explain backend scalability strategies."
+        },
+
+
+        {
+            "id": "FSD-BI-026",
+            "difficulty": "scenario",
+            "question": "A third-party service becomes temporarily unavailable. How should your application behave instead of returning a generic error?"
+        },
+        {
+            "id": "FSD-BI-027",
+            "difficulty": "scenario",
+            "question": "Your application depends on three external services, and each has different authentication, rate limits, and error formats. How would you structure the integration layer?"
+        },
+        {
+            "id": "FSD-BI-028",
+            "difficulty": "scenario",
+            "question": "Your frontend sends data to your backend, but the backend occasionally receives incomplete or malformed requests. How would you investigate the integration?"
+        },
+        {
+            "id": "FSD-BI-029",
+            "difficulty": "scenario",
+            "question": "You need to integrate a third-party service into a production application where downtime from that service must not bring down your entire system. How would you design the integration for resilience?"
+        },
+        {
+            "id": "FSD-BI-030",
+            "difficulty": "scenario",
+            "question": "Your frontend sends data to your backend, but the backend occasionally receives incomplete or malformed requests. How would you investigate the integration?"
         }
     ]
 }
