@@ -51,6 +51,7 @@
             "question": "What is the purpose of labels in forms?"
         },
 
+
         {
             "id": "FD-HTML-011",
             "difficulty": "medium",
@@ -102,6 +103,7 @@
             "question": "Explain HTML validation."
         },
 
+
         {
             "id": "FD-HTML-021",
             "difficulty": "hard",
@@ -126,6 +128,33 @@
             "id": "FD-HTML-025",
             "difficulty": "hard",
             "question": "Explain hydration in modern web applications."
+        },
+
+
+        {
+            "id": "FD-HTML-026",
+            "difficulty": "scenario",
+            "question": "A button is implemented using an <a> element because it was easier to style. What behavioral and accessibility differences should you consider?"
+        },
+        {
+            "id": "FD-HTML-027",
+            "difficulty": "scenario",
+            "question": "A form submission works with JavaScript enabled but completely fails when JavaScript is unavailable. How would you decide whether the HTML should provide a fallback?"
+        },
+        {
+            "id": "FD-HTML-028",
+            "difficulty": "scenario",
+            "question": "Your application contains a large table of data that needs to be accessible and understandable. How would you structure the HTML?"
+        },
+        {
+            "id": "FD-HTML-029",
+            "difficulty": "scenario",
+            "question": "Your team is building a large website with many pages and wants consistent, semantic markup. What HTML conventions would you establish?"
+        },
+        {
+            "id": "FD-HTML-030",
+            "difficulty": "scenario",
+            "question": "A form visually looks correct, but browser validation and accessibility tools don't recognize the fields properly. What HTML issues would you investigate?"
         }
     ]
 }

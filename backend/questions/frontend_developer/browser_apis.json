@@ -128,6 +128,33 @@
             "id": "FD-BA-025",
             "difficulty": "hard",
             "question": "Explain rendering pipelines."
+        },
+
+
+        {
+            "id": "FD-BA-026",
+            "difficulty": "scenario",
+            "question": "Your application needs to communicate with another browser tab when the user logs out. How could browser APIs help?"
+        },
+        {
+            "id": "FD-BA-027",
+            "difficulty": "scenario",
+            "question": "Your application needs to request access to a user's camera or microphone. How would you handle permissions, errors, and the security implications?"
+        },
+        {
+            "id": "FD-BA-028",
+            "difficulty": "scenario",
+            "question": "Your frontend needs to upload a large file without blocking the rest of the interface. Which browser APIs or techniques could help?"
+        },
+        {
+            "id": "FD-BA-029",
+            "difficulty": "scenario",
+            "question": "Your application needs to remember a user's preferences between visits. Which browser storage mechanism would you consider and why?"
+        },
+        {
+            "id": "FD-BA-030",
+            "difficulty": "scenario",
+            "question": "You need to copy generated text to the user's clipboard when they press a button. How would you implement this while handling browsers that don't support the required API?"
         }
     ]
 }

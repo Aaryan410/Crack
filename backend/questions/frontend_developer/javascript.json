@@ -51,6 +51,7 @@
             "question": "What is the difference between == and ===?"
         },
 
+
         {
             "id": "FD-JS-011",
             "difficulty": "medium",
@@ -102,6 +103,7 @@
             "question": "What are higher-order functions?"
         },
 
+
         {
             "id": "FD-JS-021",
             "difficulty": "hard",
@@ -126,6 +128,33 @@
             "id": "FD-JS-025",
             "difficulty": "hard",
             "question": "Explain memoization."
+        },
+
+
+        {
+            "id": "FD-JS-026",
+            "difficulty": "scenario",
+            "question": "A JavaScript event handler appears to run multiple times for a single click. What could cause this, and how would you debug it?"
+        },
+        {
+            "id": "FD-JS-027",
+            "difficulty": "scenario",
+            "question": "A frontend application becomes noticeably slower as users interact with it for longer periods. How would you determine whether the problem is excessive DOM manipulation, event listeners, memory usage, or something else?"
+        },
+        {
+            "id": "FD-JS-028",
+            "difficulty": "scenario",
+            "question": "Your application has several asynchronous operations that depend on each other. How would you structure the code so errors are handled correctly?"
+        },
+        {
+            "id": "FD-JS-029",
+            "difficulty": "scenario",
+            "question": "An API request sometimes finishes after the user has already navigated away from the page, causing an error when the response is processed. How would you handle this?"
+        },
+        {
+            "id": "FD-JS-030",
+            "difficulty": "scenario",
+            "question": "A button works correctly when clicked once but behaves strangely when clicked repeatedly. How would you investigate the JavaScript logic?"
         }
     ]
 }

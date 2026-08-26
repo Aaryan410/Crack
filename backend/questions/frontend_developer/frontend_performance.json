@@ -128,6 +128,33 @@
             "id": "FD-FP-025",
             "difficulty": "hard",
             "question": "Explain performance monitoring."
+        },
+
+
+        {
+            "id": "FD-FP-026",
+            "difficulty": "scenario",
+            "question": "Your application performs well in synthetic performance tests but users still report that it feels slow. What real-user performance metrics and debugging techniques would you use?"
+        },
+        {
+            "id": "FD-FP-027",
+            "difficulty": "scenario",
+            "question": "Your website loads quickly on your development machine but slowly for users on mobile networks. What optimizations would you prioritize?"
+        },
+        {
+            "id": "FD-FP-028",
+            "difficulty": "scenario",
+            "question": "Your homepage takes several seconds to become interactive even though the server responds quickly. How would you investigate the frontend bottleneck?"
+        },
+        {
+            "id": "FD-FP-029",
+            "difficulty": "scenario",
+            "question": "A React application renders hundreds of components whenever a small piece of state changes. How would you identify and reduce unnecessary rendering?"
+        },
+        {
+            "id": "FD-FP-030",
+            "difficulty": "scenario",
+            "question": "A page contains dozens of large images and loads slowly on mobile devices. What optimizations would you consider?"
         }
     ]
 }

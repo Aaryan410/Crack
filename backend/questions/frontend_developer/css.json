@@ -51,6 +51,7 @@
             "question": "What is the difference between display: none and visibility: hidden?"
         },
 
+
         {
             "id": "FD-CSS-011",
             "difficulty": "medium",
@@ -102,6 +103,7 @@
             "question": "What are CSS preprocessors?"
         },
 
+
         {
             "id": "FD-CSS-021",
             "difficulty": "hard",
@@ -126,6 +128,33 @@
             "id": "FD-CSS-025",
             "difficulty": "hard",
             "question": "Explain CSS architecture methodologies."
+        },
+
+
+        {
+            "id": "FD-CSS-026",
+            "difficulty": "scenario",
+            "question": "An element has z-index: 9999 but still appears behind another element. What could cause this?"
+        },
+        {
+            "id": "FD-CSS-027",
+            "difficulty": "scenario",
+            "question": "Your team wants to introduce a design system with reusable colors, spacing, typography, and components. How would you structure the CSS architecture?"
+        },
+        {
+            "id": "FD-CSS-028",
+            "difficulty": "scenario",
+            "question": "A CSS animation causes noticeable lag on lower-end devices. How would you identify and improve the performance problem?"
+        },
+        {
+            "id": "FD-CSS-029",
+            "difficulty": "scenario",
+            "question": "Two elements have conflicting CSS rules, and you're unsure why one style is being applied instead of the other. How would you debug it?"
+        },
+        {
+            "id": "FD-CSS-030",
+            "difficulty": "scenario",
+            "question": "A component looks correct on your monitor but breaks completely on smaller screens. How would you investigate the CSS causing the problem?"
         }
     ]
 }

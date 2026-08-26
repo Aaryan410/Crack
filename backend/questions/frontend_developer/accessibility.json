@@ -128,6 +128,33 @@
             "id": "FD-AY-025",
             "difficulty": "hard",
             "question": "How would you balance accessibility and design?"
+        },
+
+
+        {
+            "id": "FD-AY-026",
+            "difficulty": "scenario",
+            "question": "A user can navigate your website with a mouse, but keyboard users cannot reach several important buttons. How would you investigate and fix the issue?"
+        },
+        {
+            "id": "FD-AY-027",
+            "difficulty": "scenario",
+            "question": "Your design team wants to use color alone to indicate whether a form field is valid or invalid. What accessibility concerns would you raise?"
+        },
+        {
+            "id": "FD-AY-028",
+            "difficulty": "scenario",
+            "question": "A form contains several input fields, but screen readers announce only 'edit text' without explaining what each field is for. What would you change?"
+        },
+        {
+            "id": "FD-AY-029",
+            "difficulty": "scenario",
+            "question": "A website has several images containing important information, but users using screen readers cannot understand them. How would you handle the images?"
+        },
+        {
+            "id": "FD-AY-030",
+            "difficulty": "scenario",
+            "question": "A dynamic page updates content without reloading, but screen-reader users aren't informed when important content changes. How could you address this?"
         }
     ]
 }
