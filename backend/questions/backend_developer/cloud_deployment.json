@@ -153,6 +153,58 @@
             "id": "BD-CD-030",
             "difficulty": "hard",
             "question": "How would you optimize cloud costs without sacrificing performance?"
+        },
+
+
+        {
+            "id": "BD-CD-031",
+            "difficulty": "scenario",
+            "question": "Your application works locally but crashes immediately after deployment to a cloud server. How would you investigate the difference?"
+        },
+        {
+            "id": "BD-CD-032",
+            "difficulty": "scenario",
+            "question": "Traffic suddenly increases by 20x and your backend starts timing out. How would you scale the application?"
+        },
+        {
+            "id": "BD-CD-033",
+            "difficulty": "scenario",
+            "question": "Your application needs to store uploaded files, but the server's local filesystem is temporary. Where would you store them?"
+        },
+        {
+            "id": "BD-CD-034",
+            "difficulty": "scenario",
+            "question": "A deployment works correctly, but after several hours the server runs out of memory. How would you investigate?"
+        },
+        {
+            "id": "BD-CD-035",
+            "difficulty": "scenario",
+            "question": "You need to deploy a new backend version without causing noticeable downtime. What deployment strategy could you use?"
+        },
+        {
+            "id": "BD-CD-036",
+            "difficulty": "scenario",
+            "question": "Your application requires environment-specific secrets such as database credentials and API keys. How would you manage them securely?"
+        },
+        {
+            "id": "BD-CD-037",
+            "difficulty": "scenario",
+            "question": "Your database and backend are hosted in different cloud regions, causing high latency. How would you improve the architecture?"
+        },
+        {
+            "id": "BD-CD-038",
+            "difficulty": "scenario",
+            "question": "A deployment introduces a serious production bug. How would you quickly return to the previous stable version?"
+        },
+        {
+            "id": "BD-CD-039",
+            "difficulty": "scenario",
+            "question": "Your cloud bill suddenly becomes 5x higher than normal. How would you investigate what caused the increase?"
+        },
+        {
+            "id": "BD-CD-040",
+            "difficulty": "scenario",
+            "question": "Your backend needs to automatically scale based on incoming traffic. What metrics and infrastructure components would you consider?"
         }
     ]
 }

@@ -153,6 +153,58 @@
             "id": "BD-DBMS-030",
             "difficulty": "hard",
             "question": "Design the database schema for a URL shortening service."
+        },
+
+
+        {
+            "id": "BD-DBMS-031",
+            "difficulty": "scenario",
+            "question": "A backend endpoint performs several database queries for every request and becomes slow as traffic increases. How would you investigate?"
+        },
+        {
+            "id": "BD-DBMS-032",
+            "difficulty": "scenario",
+            "question": "Two users simultaneously modify the same database record and one update overwrites the other. How would you prevent this?"
+        },
+        {
+            "id": "BD-DBMS-033",
+            "difficulty": "scenario",
+            "question": "A production database migration needs to modify a large table containing millions of rows without causing downtime. How would you approach it?"
+        },
+        {
+            "id": "BD-DBMS-034",
+            "difficulty": "scenario",
+            "question": "Your database connection pool becomes exhausted during traffic spikes. What could cause this and how would you investigate it?"
+        },
+        {
+            "id": "BD-DBMS-035",
+            "difficulty": "scenario",
+            "question": "A query suddenly becomes slow after the database grows significantly. What would you inspect?"
+        },
+        {
+            "id": "BD-DBMS-036",
+            "difficulty": "scenario",
+            "question": "Your application needs to delete a user and all associated data while maintaining referential integrity. How would you design this?"
+        },
+        {
+            "id": "BD-DBMS-037",
+            "difficulty": "scenario",
+            "question": "A transaction fails halfway through a sequence of database operations. How should the backend handle the partially completed operation?"
+        },
+        {
+            "id": "BD-DBMS-038",
+            "difficulty": "scenario",
+            "question": "Your application has read-heavy traffic and a single database is becoming a bottleneck. What scaling options would you consider?"
+        },
+        {
+            "id": "BD-DBMS-039",
+            "difficulty": "scenario",
+            "question": "A developer wants to store a frequently changing JSON object as one large database field instead of normalized tables. What tradeoffs would you evaluate?"
+        },
+        {
+            "id": "BD-DBMS-040",
+            "difficulty": "scenario",
+            "question": "Your database becomes temporarily unavailable. How should the backend respond so that the entire application does not crash?"
         }
     ]
 }

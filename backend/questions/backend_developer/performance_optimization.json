@@ -153,6 +153,58 @@
             "id": "BD-PO-030",
             "difficulty": "hard",
             "question": "Explain performance tuning techniques for high-traffic systems."
+        },
+
+
+        {
+            "id": "BD-PO-031",
+            "difficulty": "scenario",
+            "question": "An API endpoint takes 2 seconds to respond even though the application code appears simple. How would you identify the bottleneck?"
+        },
+        {
+            "id": "BD-PO-032",
+            "difficulty": "scenario",
+            "question": "Your backend can process 100 requests per second, but you need to support 10,000. How would you approach the optimization?"
+        },
+        {
+            "id": "BD-PO-033",
+            "difficulty": "scenario",
+            "question": "CPU usage is low, but response times are high. What kinds of bottlenecks would you investigate?"
+        },
+        {
+            "id": "BD-PO-034",
+            "difficulty": "scenario",
+            "question": "A database query accounts for most of an endpoint's execution time. What optimization strategies would you consider?"
+        },
+        {
+            "id": "BD-PO-035",
+            "difficulty": "scenario",
+            "question": "Your API returns a very large JSON response and clients complain that requests are slow. How could you improve it?"
+        },
+        {
+            "id": "BD-PO-036",
+            "difficulty": "scenario",
+            "question": "A backend performs an expensive calculation every time a user opens a page. How would you optimize this?"
+        },
+        {
+            "id": "BD-PO-037",
+            "difficulty": "scenario",
+            "question": "Performance improves dramatically when caching is enabled, but cached responses sometimes contain outdated information. How would you balance performance and correctness?"
+        },
+        {
+            "id": "BD-PO-038",
+            "difficulty": "scenario",
+            "question": "Your application performs several independent external API calls sequentially. How could you reduce the total response time?"
+        },
+        {
+            "id": "BD-PO-039",
+            "difficulty": "scenario",
+            "question": "An optimization makes an endpoint 50% faster but increases memory usage by 5x. How would you determine whether the change is worthwhile?"
+        },
+        {
+            "id": "BD-PO-040",
+            "difficulty": "scenario",
+            "question": "Your backend performs well in benchmarks but becomes slow under real-world traffic. What might explain the difference, and how would you investigate?"
         }
     ]
 }

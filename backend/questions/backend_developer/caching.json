@@ -153,6 +153,58 @@
             "id": "BD-C-030",
             "difficulty": "hard",
             "question": "What challenges arise when caching frequently changing data?"
+        },
+
+
+        {
+            "id": "BD-C-031",
+            "difficulty": "scenario",
+            "question": "Your database is receiving thousands of identical read queries every minute. How could caching reduce the load?"
+        },
+        {
+            "id":  "BD-C-032",
+            "difficulty": "scenario",
+            "question": "Users update their profile but sometimes see the old information afterward. You suspect stale cache data. How would you diagnose and fix it?"
+        },
+        {
+            "id": "BD-C-033",
+            "difficulty": "scenario",
+            "question": "Your application has a popular API endpoint whose underlying data changes every few minutes. What caching strategy would you use?"
+        },
+        {
+            "id": "BD-C-034",
+            "difficulty": "scenario",
+            "question": "A cache contains millions of entries and memory usage keeps increasing. How would you control the cache size?"
+        },
+        {
+            "id": "BD-C-035",
+            "difficulty": "scenario",
+            "question": "Your application has multiple backend servers. Each server currently maintains its own in-memory cache. What problems could this cause?"
+        },
+        {
+            "id": "BD-C-036",
+            "difficulty": "scenario",
+            "question": "A cached API response becomes invalid whenever a user changes their permissions. How would you handle cache invalidation?"
+        },
+        {
+            "id": "BD-C-037",
+            "difficulty": "scenario",
+            "question": "Your cache goes down unexpectedly and suddenly the database becomes overloaded. How would you design the system to handle cache failure?"
+        },
+        {
+            "id": "BD-C-038",
+            "difficulty": "scenario",
+            "question": "You need to cache expensive computation results, but some results are personalized for each user. How would you design the cache keys?"
+        },
+        {
+            "id": "BD-C-039",
+            "difficulty": "scenario",
+            "question": "A developer suggests caching every database query to maximize performance. What problems could this approach create?"
+        },
+        {
+            "id": "BD-C-040",
+            "difficulty": "scenario",
+            "question": "Your application needs to cache data for different periods depending on how frequently it changes. How would you determine appropriate expiration policies?"
         }
     ]
 }

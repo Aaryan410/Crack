@@ -153,6 +153,58 @@
             "id": "BD-RA-030",
             "difficulty": "hard",
             "question": "What metrics would you track for a production API?"
+        },
+
+
+        {
+            "id": "BD-RA-031",
+            "difficulty": "scenario",
+            "question": "Your API originally returns a user's email address, but a new requirement says this information must be hidden from normal users. How would you change the API without breaking existing clients?"
+        },
+        {
+            "id": "BD-RA-032",
+            "difficulty": "scenario",
+            "question": "A client sends the same POST request twice because of a network timeout. How would you prevent duplicate operations?"
+        },
+        {
+            "id": "BD-RA-033",
+            "difficulty": "scenario",
+            "question": "Your API needs to return thousands of database records. How would you design pagination?"
+        },
+        {
+            "id": "BD-RA-034",
+            "difficulty": "scenario",
+            "question": "A frontend developer asks you to return completely different response formats for every endpoint. How would you establish consistent API conventions?"
+        },
+        {
+            "id": "BD-RA-035",
+            "difficulty": "scenario",
+            "question": "Your API needs to support both old and new clients while introducing breaking changes. How would you version it?"
+        },
+        {
+            "id": "BD-RA-036",
+            "difficulty": "scenario",
+            "question": "An endpoint accepts a user-provided ID and returns information about that resource. What authorization checks should occur before returning it?"
+        },
+        {
+            "id": "BD-RA-037",
+            "difficulty": "scenario",
+            "question": "Your API receives malformed or unexpected JSON from clients. How should the backend validate and respond?"
+        },
+        {
+            "id": "BD-RA-038",
+            "difficulty": "scenario",
+            "question": "An API endpoint takes several seconds because it triggers a long-running operation. Should the client wait for the operation to finish? How would you redesign the endpoint?"
+        },
+        {
+            "id": "BD-RA-039",
+            "difficulty": "scenario",
+            "question": "Your API needs to communicate errors clearly enough that frontend developers can handle them programmatically. How would you structure error responses?"
+        },
+        {
+            "id": "BD-RA-040",
+            "difficulty": "scenario",
+            "question": "A public API is being used by third-party developers and you need to prevent abuse without completely blocking legitimate clients. How would you design rate limiting?"
         }
     ]
 }

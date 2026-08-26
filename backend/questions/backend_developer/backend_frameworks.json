@@ -153,6 +153,58 @@
             "id": "BD-BF-030",
             "difficulty": "hard",
             "question": "How would you design a framework-independent backend architecture?"
+        },
+
+
+        {
+            "id": "BD-BF-031",
+            "difficulty": "scenario",
+            "question": "A Flask application has grown from a small prototype into a large codebase with dozens of routes. How would you organize the application without rewriting everything?"
+        },
+        {
+            "id": "BD-BF-032",
+            "difficulty": "scenario",
+            "question": "A request handler is performing database queries, validation, business logic, and response formatting all in one function. How would you improve it?"
+        },
+        {
+            "id": "BD-BF-033",
+            "difficulty": "scenario",
+            "question": "Your backend framework supports middleware/hooks. You need logging and authentication checks on many routes. How would you structure this?"
+        },
+        {
+            "id": "BD-BF-034",
+            "difficulty": "scenario",
+            "question": "A framework update introduces breaking changes and your production application stops working. How would you handle the upgrade?"
+        },
+        {
+            "id": "BD-BF-035",
+            "difficulty": "scenario",
+            "question": "Your API has hundreds of routes and developers frequently create inconsistent error responses. How would you standardize them?"
+        },
+        {
+            "id": "BD-BF-036",
+            "difficulty": "scenario",
+            "question": "A backend application starts behaving differently depending on whether it runs in development or production. What framework/configuration issues would you investigate?"
+        },
+        {
+            "id": "BD-BF-037",
+            "difficulty": "scenario",
+            "question": "You need to add background processing to a framework that currently handles everything synchronously. How would you integrate it?"
+        },
+        {
+            "id": "BD-BF-038",
+            "difficulty": "scenario",
+            "question": "Several routes contain almost identical validation logic. How would you eliminate the duplication while keeping the code maintainable?"
+        },
+        {
+            "id": "BD-BF-039",
+            "difficulty": "scenario",
+            "question": "A framework extension you're relying on is no longer maintained. How would you decide whether to replace it?"
+        },
+        {
+            "id": "BD-BF-040",
+            "difficulty": "scenario",
+            "question": "Your application needs to support versioned APIs without breaking existing clients. How would you structure the framework routes?"
         }
     ]
 }

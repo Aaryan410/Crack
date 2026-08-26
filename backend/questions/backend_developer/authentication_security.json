@@ -153,6 +153,58 @@
             "id": "BD-AS-030",
             "difficulty": "hard",
             "question": "How would you secure communication between internal services?"
+        },
+
+
+        {
+            "id": "BD-AS-031",
+            "difficulty": "scenario",
+            "question": "A user reports that they can access another user's profile by manually changing the user ID in the URL. How would you fix this?"
+        },
+        {
+            "id": "BD-AS-032",
+            "difficulty": "scenario",
+            "question": "Your authentication endpoint receives thousands of failed login attempts from different IP addresses. How would you protect it?"
+        },
+        {
+            "id": "BD-AS-033",
+            "difficulty": "scenario",
+            "question": "A JWT is stolen from a user's browser. What can an attacker do with it, and how would you reduce the impact?"
+        },
+        {
+            "id": "BD-AS-034",
+            "difficulty": "scenario",
+            "question": "Your application stores passwords directly in the database. You discover this during a security review. How would you migrate the system safely?"
+        },
+        {
+            "id": "BD-AS-035",
+            "difficulty": "scenario",
+            "question": "A user logs out, but their previously issued authentication token continues to work. How would you design logout so revoked sessions cannot continue indefinitely?"
+        },
+        {
+            "id": "BD-AS-036",
+            "difficulty": "scenario",
+            "question": "Your backend has admin endpoints that normal users should never be able to access. How would you implement authorization?"
+        },
+        {
+            "id": "BD-AS-037",
+            "difficulty": "scenario",
+            "question": "An attacker discovers that an API accepts arbitrary values for a user's role field. How could this become a security problem, and how would you prevent it?"
+        },
+        {
+            "id": "BD-AS-038",
+            "difficulty": "scenario",
+            "question": "Your application allows users to upload files. How would you prevent malicious files from being uploaded and executed?"
+        },
+        {
+            "id": "BD-AS-039",
+            "difficulty": "scenario",
+            "question": "A developer accidentally exposes a secret API key through an API response. What should happen immediately, and how would you prevent similar incidents?"
+        },
+        {
+            "id": "BD-AS-040",
+            "difficulty": "scenario",
+            "question": "Your application needs authentication across a web frontend, mobile app, and API. How would you design the authentication system so it remains secure and manageable?"
         }
     ]
 }

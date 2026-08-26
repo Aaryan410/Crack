@@ -153,6 +153,58 @@
             "id": "BD-MS-030",
             "difficulty": "hard",
             "question": "Design a microservice architecture for an e-commerce platform."
+        },
+
+
+        {
+            "id": "BD-MS-031",
+            "difficulty": "scenario",
+            "question": "Your monolithic backend has become difficult to maintain because different teams constantly modify the same code. How would you determine whether microservices are justified?"
+        },
+        {
+            "id": "BD-MS-032",
+            "difficulty": "scenario",
+            "question": "A request requires information from three microservices, but one service is temporarily unavailable. How should the system respond?"
+        },
+        {
+            "id": "BD-MS-033",
+            "difficulty": "scenario",
+            "question": "One microservice becomes overloaded while the others remain mostly idle. How would you address this?"
+        },
+        {
+            "id": "BD-MS-034",
+            "difficulty": "scenario",
+            "question": "A service needs to communicate with another service that is occasionally slow. How would you prevent the delay from cascading through the entire system?"
+        },
+        {
+            "id": "BD-MS-035",
+            "difficulty": "scenario",
+            "question": "Two services need to share the same data. Would you use a shared database or separate databases? How would you decide?"
+        },
+        {
+            "id": "BD-MS-036",
+            "difficulty": "scenario",
+            "question": "A microservice deployment introduces an incompatible API change that breaks older services. How would you prevent this?"
+        },
+        {
+            "id": "BD-MS-037",
+            "difficulty": "scenario",
+            "question": "A request travels through six microservices and fails somewhere in the middle. How would you identify which service caused the failure?"
+        },
+        {
+            "id": "BD-MS-038",
+            "difficulty": "scenario",
+            "question": "One service needs to notify several other services when an important event occurs. How could you design this communication?"
+        },
+        {
+            "id": "BD-MS-039",
+            "difficulty": "scenario",
+            "question": "Your team has 30 microservices, but deploying and monitoring them has become extremely difficult. What would you consider changing?"
+        },
+        {
+            "id": "BD-MS-040",
+            "difficulty": "scenario",
+            "question": "A team proposes splitting a small, stable monolith into 15 microservices immediately. What concerns would you raise before approving the architecture?"
         }
     ]
 }

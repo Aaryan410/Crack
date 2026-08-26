@@ -153,6 +153,58 @@
             "id": "BD-D-030",
             "difficulty": "hard",
             "question": "What tools would you use to diagnose performance bottlenecks?"
+        },
+
+
+        {
+            "id": "BD-D-031",
+            "difficulty": "scenario",
+            "question": "An endpoint suddenly starts returning HTTP 500 errors in production, but works locally. How would you investigate it?"
+        },
+        {
+            "id": "BD-D-032",
+            "difficulty": "scenario",
+            "question": "A bug happens only once every few thousand requests. How would you collect enough information to reproduce and diagnose it?"
+        },
+        {
+            "id": "BD-D-033",
+            "difficulty": "scenario",
+            "question": "Your backend returns the correct result in development but incorrect results in production. What would you compare first?"
+        },
+        {
+            "id": "BD-D-034",
+            "difficulty": "scenario",
+            "question": "Memory usage steadily increases over several hours until the application crashes. How would you investigate a possible memory leak?"
+        },
+        {
+            "id": "BD-D-035",
+            "difficulty": "scenario",
+            "question": "An API request occasionally takes 10 seconds instead of 100 ms. How would you identify where the latency comes from?"
+        },
+        {
+            "id": "BD-D-036",
+            "difficulty": "scenario",
+            "question": "A database query is unexpectedly slow, but only for certain users. What would you investigate?"
+        },
+        {
+            "id": "BD-D-037",
+            "difficulty": "scenario",
+            "question": "A background job sometimes fails without leaving an obvious error message. How would you improve the debugging information?"
+        },
+        {
+            "id": "BD-D-038",
+            "difficulty": "scenario",
+            "question": "A deployment fixes one bug but causes an unrelated endpoint to fail. How would you determine what changed?"
+        },
+        {
+            "id": "BD-D-039",
+            "difficulty": "scenario",
+            "question": "Multiple backend services are involved in a failing request, and the logs from each service look normal individually. How would you trace the request across the system?"
+        },
+        {
+            "id": "BD-D-040",
+            "difficulty": "scenario",
+            "question": "You inherit a production backend with almost no logging. Before debugging a difficult issue, what observability improvements would you make?"
         }
     ]
 }
