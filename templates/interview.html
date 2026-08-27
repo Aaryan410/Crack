@@ -9,7 +9,7 @@
         <link rel = "preconnect" href = "https://fonts.googleapis.com">
         <link href = "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel = "stylesheet">
 
-        <script src = "{{ url_for('static', filename = 'js/timer.js') }}"></script>
+        <script defer src = "{{ url_for('static', filename = 'js/timer.js') }}"></script>
     </head>
     <body>
         
@@ -25,7 +25,7 @@
                     <div class = "question-tag">Question {{ question_number }}</div>
                     <div class = "timer">
                         <span class = "timer-dot"></span>
-                        <span id = "timer-text">02:14</span>
+                        <span id = "timer-text" data-started-at = "{{ interview_started_at }}">00:00</span>
                     </div>
                 </div>
 

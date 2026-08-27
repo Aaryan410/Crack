@@ -38,6 +38,12 @@
                         <div class = "score-label">Confidence</div>
                         <div class = "score-value">{{ report.confidence }}</div>
                     </div>
+                    <div class = "score-card">
+                        <div class = "score-label">Time Taken</div>
+                        <div class = "score-value">
+                            {{ "%02d:%02d" | format(duration // 60, duration % 60) }}
+                        </div>
+                    </div>
                 </div>
 
                 <section class = "report-section">

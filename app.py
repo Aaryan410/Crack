@@ -4,6 +4,7 @@ from backend.ai.evaluator import evaluate, evaluate_report
 from flask import Flask, render_template, request, redirect, session as flask_session
 from dotenv import load_dotenv
 import os
+import time
 
 load_dotenv()
 
@@ -36,6 +37,8 @@ def start():
     session = InterviewSession(role)
     session.start()
 
+    flask_session["interview_started_at"] = time.time()
+
     question = engine.get_next_question()
     session.set_question(question)
 
@@ -44,16 +47,19 @@ def start():
     active_interviews[id] = {"engine": engine, "session": session}
 
     return render_template (
-         "interview.html",
-         role = role,
-         question = question,
-         question_number = engine.questions_asked
+        "interview.html",
+        role = role,
+        question = question,
+        question_number = engine.questions_asked,
+        interview_started_at = flask_session["interview_started_at"]
     )
 
 
 @app.route("/answer", methods = ["POST"])
 def answer():
     engine, session = get_current_interview()
+
+    started_at = flask_session.get("interview_started_at")
 
     if engine is None:
         return redirect("/")
@@ -65,12 +71,22 @@ def answer():
     engine.update(evaluation)
 
     if engine.should_end():
+        started_at = flask_session.get("interview_started_at")
+
+        if started_at is not None:
+            flask_session["interview_duration"] = int(time.time() - started_at)
+
         session.finish()
         return redirect("/evaluating")
 
     next_question = engine.get_next_question()
 
     if next_question is None:
+        started_at = flask_session.get("interview_started_at")
+
+        if started_at is not None:
+            flask_session["interview_duration"] = int(time.time() - started_at)
+
         session.finish()
         return redirect("/report")
 
@@ -80,7 +96,8 @@ def answer():
         "interview.html",
         role = session.role,
         question = next_question,
-        question_number = engine.questions_asked
+        question_number = engine.questions_asked,
+        interview_started_at = flask_session["interview_started_at"]
     )
 
 
@@ -102,6 +119,8 @@ def report():
 
     engine, session = get_current_interview()
 
+    duration = flask_session.get("interview_duration", 0)
+
     print("ENGINE:", engine)
     print("SESSION:", session)
 
@@ -121,7 +140,8 @@ def report():
         role = display_role,
         report = report_data,
         questions_answered = engine.questions_asked,
-        answers = session.answers
+        answers = session.answers,
+        duration = duration
     )
 
 
