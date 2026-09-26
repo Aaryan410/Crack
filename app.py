@@ -28,6 +28,9 @@ def start():
 
     role = request.form.get("role")
 
+    if not role:
+        return redirect("/")
+
     engine = InterviewEngine(role)
     session = InterviewSession(role)
     session.start()

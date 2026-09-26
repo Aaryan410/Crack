@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <meta name = "viewport" content = "width = device-width", initial-scale = 1.0">
+        <meta name = "viewport" content = "width = device-width", initial-scale = 1.0>
         <title>Crack</title>
 
         <link rel = "stylesheet" href = "{{ url_for('static', filename = 'css/index.css') }}">
@@ -42,7 +42,7 @@
 
                         <!-- ai engineer -->
                         <label class = "role-card">
-                            <input type = "radio" name = "role" value = "ai_engineer">
+                            <input type = "radio" name = "role" value = "ai_engineer" required>
                             <div class = "icon"><div class = "icon-label">AI</div></div>
                             <div class = "title">AI engineer</div>
                             <div class = "desc">APIs, database, system design</div>
@@ -50,7 +50,7 @@
 
                         <!-- backend dev -->
                         <label class = "role-card">
-                            <input type = "radio" name = "role" value = "backend_developer">
+                            <input type = "radio" name = "role" value = "backend_developer" required>
                             <div class = "icon"><div class = "icon-label">BD</div></div>
                             <div class = "title">Backend Developer</div>
                             <div class = "desc">APIs, database, system design</div>
@@ -58,7 +58,7 @@
 
                         <!-- devops engineer -->
                         <label class = "role-card">
-                            <input type = "radio" name = "role" value = "devops_engineer">
+                            <input type = "radio" name = "role" value = "devops_engineer" required>
                             <div class = "icon"><div class = "icon-label">DO</div></div>
                             <div class = "title">DevOps engineer</div>
                             <div class = "desc">CI/CD, automation, observability</div>
@@ -66,7 +66,7 @@
 
                         <!-- cybersecurity analyst -->
                         <label class = "role-card">
-                            <input type = "radio" name = "role" value = "cybersecurity_analyst">
+                            <input type = "radio" name = "role" value = "cybersecurity_analyst" required>
                             <div class = "icon"><div class = "icon-label">CS</div></div>
                             <div class = "title">Cybersecurity analyst</div>
                             <div class = "desc">Threats, security ops, incident response</div>
@@ -74,7 +74,7 @@
 
                         <!-- data scientist -->
                         <label class = "role-card">
-                            <input type = "radio" name = "role" value = "data_scientist">
+                            <input type = "radio" name = "role" value = "data_scientist" required>
                             <div class = "icon"><div class = "icon-label">DS</div></div>
                             <div class = "title">Data scientist</div>
                             <div class = "desc">Statistics, modeling, experimentation</div>
@@ -82,7 +82,7 @@
 
                         <!-- cloud engineer -->
                         <label class = "role-card">
-                            <input type = "radio" name = "role" value = "cloud_engineer">
+                            <input type = "radio" name = "role" value = "cloud_engineer" required>
                             <div class = "icon"><div class = "icon-label">CE</div></div>
                             <div class = "title">Cloud engineer</div>
                             <div class = "desc">Infrastructure, scaling, cloud platforms </div>
@@ -90,7 +90,7 @@
 
                         <!-- frontend dev -->
                         <label class = "role-card">
-                            <input type = "radio" name = "role" value = "frontend_developer">
+                            <input type = "radio" name = "role" value = "frontend_developer" required> 
                             <div class = "icon"><div class = "icon-label">FE</div></div>
                             <div class = "title">Frontend developer</div>
                             <div class = "desc">UI systems, performance, accessibility</div>
@@ -98,7 +98,7 @@
 
                         <!-- full stack dev -->
                         <label class = "role-card">
-                            <input type = "radio" name = "role" value = "full_stack_developer">
+                            <input type = "radio" name = "role" value = "full_stack_developer" required>
                             <div class = "icon"><div class = "icon-label">FS</div></div>
                             <div class = "title">Full stack developer</div>
                             <div class = "desc">End-to-end product engineering</div>
@@ -106,7 +106,7 @@
 
                         <!-- ml engineer -->
                         <label class = "role-card">
-                            <input type = "radio" name = "role" value = "machine_learning_engineer">
+                            <input type = "radio" name = "role" value = "machine_learning_engineer" required>
                             <div class = "icon"><div class = "icon-label">ML</div></div>
                             <div class = "title">ML engineer</div>
                             <div class = "desc">Model training, pipelines, MLOps</div>
@@ -114,7 +114,7 @@
 
                         <!-- software engineer -->
                         <label class = "role-card">
-                            <input type = "radio" name = "role" value = "software_engineer">
+                            <input type = "radio" name = "role" value = "software_engineer" required>
                             <div class = "icon"><div class = "icon-label">SE</div></div>
                             <div class = "title">Software engineer</div>
                             <div class = "desc">Core CS, algorithms, architecture</div>
