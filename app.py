@@ -23,8 +23,10 @@ def home():
     return render_template("index.html")
 
 
-@app.route("/start", methods = ["POST"])
+@app.route("/start", methods = ["GET", "POST"])
 def start():
+    if request.method == "GET":
+        return redirect("/")
 
     role = request.form.get("role")
 
