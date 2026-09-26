@@ -1,26 +1,22 @@
 from backend.engine.interview_engine import InterviewEngine
 from backend.session.interview import InterviewSession
 from backend.ai.evaluator import evaluate, evaluate_report
+from backend.store import session_store
 from flask import Flask, render_template, request, redirect, session as flask_session
 from dotenv import load_dotenv
 import os
 import time
+import uuid
 
 load_dotenv()
 
 app = Flask(__name__)
 app.secret_key = os.getenv("SECRET_KEY")
 
-active_interviews = {}
-
 def get_current_interview():
 
     id = flask_session.get("interview")
-
-    if id is None or id not in active_interviews:
-        return None, None
-
-    return (active_interviews[id]["engine"], active_interviews[id]["session"])
+    return session_store.load_interview(id)
 
 @app.route("/")
 def home():
@@ -29,7 +25,6 @@ def home():
 
 @app.route("/start", methods = ["POST"])
 def start():
-    import uuid
 
     role = request.form.get("role")
 
@@ -44,7 +39,7 @@ def start():
 
     id = str(uuid.uuid4())
     flask_session["interview"] = id
-    active_interviews[id] = {"engine": engine, "session": session}
+    session_store.save_interview(id, engine, session)
 
     return render_template (
         "interview.html",
@@ -58,6 +53,8 @@ def start():
 @app.route("/answer", methods = ["POST"])
 def answer():
     engine, session = get_current_interview()
+
+    interview_id = flask_session.get("interview")
 
     started_at = flask_session.get("interview_started_at")
 
@@ -77,6 +74,7 @@ def answer():
             flask_session["interview_duration"] = int(time.time() - started_at)
 
         session.finish()
+        session_store.save_interview(interview_id, engine, session)
         return redirect("/evaluating")
 
     next_question = engine.get_next_question()
@@ -88,9 +86,11 @@ def answer():
             flask_session["interview_duration"] = int(time.time() - started_at)
 
         session.finish()
+        session_store.save_interview(interview_id, engine, session)
         return redirect("/report")
 
     session.set_question(next_question)
+    session_store.save_interview(interview_id, engine, session)
 
     return render_template (
         "interview.html",
@@ -104,12 +104,14 @@ def answer():
 @app.route("/evaluating", methods = ["GET"])
 def evaluating():
     engine, session = get_current_interview()
+    interview_id = flask_session.get("interview")
 
     if engine is None or session is None:
         return redirect("/")
 
     if session.report is None:
         session.report = evaluate_report(session)
+        session_store.save_interview(interview_id, engine, session)
 
     return render_template("evaluating.html")
 
@@ -121,11 +123,8 @@ def report():
 
     duration = flask_session.get("interview_duration", 0)
 
-    print("ENGINE:", engine)
-    print("SESSION:", session)
-
-    if session.report is None:
-        return redirect("/evaluting")
+    if session is None or session.report is None:
+        return redirect("/evaluating")
 
     if engine is None:
         return redirect("/")
