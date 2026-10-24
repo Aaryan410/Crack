@@ -14,14 +14,6 @@ def evaluate(session):
 
     try:
 
-        ideal_summary = evaluation.get("ideal_answer_summary")
-
-        if ideal_summary is not None and not isinstance(ideal_summary, str):
-            raise ValueError("Ideal answer summary must be text")
-
-        candidate_response["score"] = evaluation["score"]
-        candidate_response["feedback"] = evaluation["feedback"]
-
         llm_response = send_prompt(prompt)
 
         if not isinstance(llm_response, str) or not llm_response.strip():
@@ -33,20 +25,24 @@ def evaluate(session):
 
         evaluation = json.loads(llm_response)
 
-        if "ideal_answer_summary" in evaluation:
-            candidate_response["ideal_answer_summary"] = evaluation["ideal_answer_summary"]
-
         if not isinstance(evaluation, dict):
             raise ValueError("Evaluation must be a JSON object")
 
         score = evaluation.get("score")
         feedback = evaluation.get("feedback")
+        ideal_summary = evaluation.get("ideal_answer_summary")
 
         if type(score) is not int or not 0 <= score <= 100:
             raise ValueError("Score must be an integer from 0 to 100")
 
         if not isinstance(feedback, str) or not feedback.strip():
             raise ValueError("Feedback must be non-empty text")
+
+        if ideal_summary is not None and not isinstance(ideal_summary, str):
+            raise ValueError("Ideal answer summary must be text")
+
+        candidate_response["score"] = score
+        candidate_response["feedback"] = feedback
 
         if ideal_summary is not None:
             candidate_response["ideal_answer_summary"] = ideal_summary
