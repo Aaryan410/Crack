@@ -12,27 +12,49 @@ def evaluate(session):
         session.difficulty
         )
 
-    llm_response = send_prompt(prompt)
-
-    llm_response = llm_response.replace("```json", "")
-    llm_response = llm_response.replace("```", "")
-    llm_response = llm_response.strip()
-
     try:
 
-        evaluation = json.loads(llm_response)
+        ideal_summary = evaluation.get("ideal_answer_summary")
+
+        if ideal_summary is not None and not isinstance(ideal_summary, str):
+            raise ValueError("Ideal answer summary must be text")
 
         candidate_response["score"] = evaluation["score"]
         candidate_response["feedback"] = evaluation["feedback"]
 
+        llm_response = send_prompt(prompt)
+
+        if not isinstance(llm_response, str) or not llm_response.strip():
+                raise ValueError("AI returned no evaluation text")
+
+        llm_response = llm_response.replace("```json", "")
+        llm_response = llm_response.replace("```", "")
+        llm_response = llm_response.strip()
+
+        evaluation = json.loads(llm_response)
+
         if "ideal_answer_summary" in evaluation:
             candidate_response["ideal_answer_summary"] = evaluation["ideal_answer_summary"]
 
+        if not isinstance(evaluation, dict):
+            raise ValueError("Evaluation must be a JSON object")
+
+        score = evaluation.get("score")
+        feedback = evaluation.get("feedback")
+
+        if type(score) is not int or not 0 <= score <= 100:
+            raise ValueError("Score must be an integer from 0 to 100")
+
+        if not isinstance(feedback, str) or not feedback.strip():
+            raise ValueError("Feedback must be non-empty text")
+
+        if ideal_summary is not None:
+            candidate_response["ideal_answer_summary"] = ideal_summary
+ 
         return evaluation
 
-    except json.JSONDecodeError as e:
-        print("Invalid JSON received from Claude:")
-        print(e)
+    except ValueError as e:
+        print(f"Invalid AI evalution: {e}")
         return None
 
 
@@ -44,8 +66,8 @@ def evaluate_report(session):
         overall_score = 0
     else:
         overall_score = round (
-            sum(answer["score"] for answer in session.answers) /
-            len(session.answers)
+            sum(answer["score"] for answer in scored_answers) /
+            len(scored_answers)
         )
 
     prompt = build_report_prompt(session)
