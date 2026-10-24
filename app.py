@@ -174,5 +174,10 @@ def generate_report():
     return jsonify(redirect_url = "/report")
 
 
+@app.route("/dashboard")
+def dashboard():
+    return render_template("dashboard.html")
+
+
 if __name__ == "__main__":
     app.run()

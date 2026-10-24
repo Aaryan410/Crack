@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang = "en">
+    <head>
+        <meta charset = "UTF-8">
+        <meta name = "viewport" content = "width=device-width, initial-scale=1.0">
+
+        <title>{% block title %}Crack{% endblock %}</title>
+
+        {% block styles %}{% endblock %}
+    </head>
+    <body>
+        <header>
+            <a href = "{{ url_for('home') }}">Crack</a>
+
+            <nav aria-label = "Main navigation">
+                <a href = "{{ url_for('dashboard') }}">Dashboard</a>
+                <a href = "{{ url_for('home') }}">Practice interview</a>
+            </nav>
+        </header>
+
+        <main>
+            {% block content %}{% endblock %}
+        </main>
+
+        {% block scripts %}{% endblock %}
+    </body>
+</html>
