@@ -4,6 +4,7 @@ from backend.ai.evaluator import evaluate, evaluate_report
 from backend.store import session_store
 from flask import Flask, render_template, request, redirect, session as flask_session
 from dotenv import load_dotenv
+from flask import jsonify
 import os
 import time
 import uuid
@@ -92,7 +93,7 @@ def answer():
 
         session.finish()
         session_store.save_interview(interview_id, engine, session)
-        return redirect("/report")
+        return redirect("/evaluating")
 
     session.set_question(next_question)
     session_store.save_interview(interview_id, engine, session)
@@ -114,9 +115,8 @@ def evaluating():
     if engine is None or session is None:
         return redirect("/")
 
-    if session.report is None:
-        session.report = evaluate_report(session)
-        session_store.save_interview(interview_id, engine, session)
+    if session.report is not None:
+        return redirect("/report")
 
     return render_template("evaluating.html")
 
@@ -147,6 +147,31 @@ def report():
         answers = session.answers,
         duration = duration
     )
+
+
+@app.route("/generate-report", methods = ["POST"])
+def generate_report():
+    engine, session = get_current_interview()
+    interview_id = flask_session.get("interview")
+
+    if engine is None or session is None:
+        return jsonify(error = "Your interview has expired."), 410
+
+    if session.ended_at is None:
+        return jsonify(error = "The interview has not finished yet."), 409
+
+    if session.report is None:
+        report_data = evaluate_report(session)
+
+        if report_data is None:
+            return jsonify(
+                error = "We couldn't generate your report. Please try again."
+            ), 503
+
+        session.report = report_data
+        session_store.save_interview(interview_id, engine, session)
+
+    return jsonify(redirect_url = "/report")
 
 
 if __name__ == "__main__":

@@ -13,7 +13,10 @@
         <div class = "page">
             <div class = "logo">Crack</div>
             <div class = "spinner" id = "spinner"></div>
-            <p class = "loading-text">Evaluating your response...</p>
+            <p class = "loading-text" id = "status-text">Generating your interview report...</p>
+            <button type = "button" id = "retry-button" hidden>
+                Try again
+            </button>
         </div>
 
         <script>
@@ -27,12 +30,43 @@
             }
             rotate();
 
-            window.onload = () => {
-                setTimeout(() => {
-                    window.location.href = "/report";
-                }, 2000);
-            }
+            const statusText = document.getElementById("status-text");
+            const retryButton = document.getElementById("retry-button");
 
+            retryButton.addEventListener("click", () => {
+                window.location.reload();
+            });
+
+            window.onload = async () => {
+                try {
+                    const response = await fetch("/generate-report", {
+                        method: "POST"
+                    });
+
+                    if (reponse.status === 410) {
+                        window.location.replace("/");
+                        return;
+                    }
+
+                    const data = await response.json();
+
+                    if (!response.ok) {
+                        spinner.style.display = "none";
+                        statusText.textContent = 
+                            data.error || "We couldn't generate your report.";
+
+                        retryButton.hidden = response.status !== 503;
+                        return;
+                    }
+
+                    window.location.replace(data.redirect_url);
+                } catch (error) {
+                    spinner.style.display = "none";
+                    statusText.textContent =
+                        "We couldn't connect. Please try again.";
+                    retryButton.hidden = false;
+                }
+            };
         </script>
 
     </body>

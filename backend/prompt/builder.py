@@ -45,6 +45,7 @@ def build_report_prompt(session):
 
     Rules:
 
+    - All six metric scores must be number from 0 to 100, where higher is better.
     - Strengths MUST contain only positive aspects.
     - Weaknesses MUST contain only genuine gaps, mistakes, or missed depth - never
       a strength restated, reworded, or copied into the weaknesses list.

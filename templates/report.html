@@ -24,7 +24,13 @@
                 <div class = "score-row">
                     <div class = "score-card score-card--primary">
                         <div class = "score-label">Overall Performance</div>
-                        <div class = "score-value">{{ report.overall_score }}</div>
+                        <div class = "score-value">
+                            {% if report.overall_score is not none %}
+                                {{ report.overall_score }}
+                            {% else %}
+                                Unavailable
+                            {% endif %}
+                        </div>
                     </div>
                     <div class = "score-card">
                         <div class = "score-label">Technical Accuracy</div>
