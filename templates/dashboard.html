@@ -2,6 +2,10 @@
 
 {% block title %}Dashboard | Crack{% endblock %}
 
+{% block styles %}
+    <link rel = "stylesheet" href = "{{ url_for('static', filename = 'css/dashboard.css') }}">
+{% endblock %}
+
 {% block content %}
     <section>
         <p>Your interview practice, in one place</p>
@@ -18,9 +22,25 @@
     <section>
         <h2>Your progress</h2>
 
-        <p>
-            Your interview statistics will appear here once we connect
-            saved interview data.
+        <div class = "status-grid">
+            <article class = "stat-card">
+                <h3>Interview completed</h3>
+                <p class = "stat-value">-</p>
+            </article>
+
+            <article class = "stat-card">
+                <h3>Average score</h3>
+                <p class = "stat-value">-</p>
+            </article>
+
+            <article class = "stat-card">
+                <h3>Best score</h3>
+                <p class = "stat-value">-</p>
+            </article>
+        </div>
+
+        <p class = "stats-note">
+            Statistics will appear here once we connect saved interview data.
         </p>
     </section>
 {% endblock %}
