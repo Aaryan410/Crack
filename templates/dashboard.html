@@ -25,17 +25,17 @@
         <div class = "status-grid">
             <article class = "stat-card">
                 <h3>Interview completed</h3>
-                <p class = "stat-value">-</p>
+                <p class = "stat-value">{{ stats.completed if stats.completed is not none else "-" }}</p>
             </article>
 
             <article class = "stat-card">
                 <h3>Average score</h3>
-                <p class = "stat-value">-</p>
+                <p class = "stat-value">{{ stats.average if stats.best is not none else "-" }}</p>
             </article>
 
             <article class = "stat-card">
                 <h3>Best score</h3>
-                <p class = "stat-value">-</p>
+                <p class = "stat-value">{{ stats.best if stats.best is not none else "-" }}</p>
             </article>
         </div>
 

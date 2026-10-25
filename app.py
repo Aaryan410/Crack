@@ -176,7 +176,13 @@ def generate_report():
 
 @app.route("/dashboard")
 def dashboard():
-    return render_template("dashboard.html")
+    stats = {
+        "completed": None,
+        "average": None,
+        "best": None
+    }
+
+    return render_template("dashboard.html", stats = stats)
 
 
 if __name__ == "__main__":
