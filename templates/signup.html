@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block title %}Create account | Crack{% endblock %}
+
+{% block styles %}
+    <link rel = "stylesheet" href = "{{ url_for('static', filename = 'css/auth.css') }}">
+{% endblock %}
+
+{% block content %}
+    <section class = "auth-panel">
+        <h1>Create your account</h1>
+        <p>Sae your interviews and track your progress</p>
+
+        {% if error %}
+            <p role = "alert">{{ error }}</p>
+        {% endif %}
+
+        {% for message in get_flashed_messages() %}
+            <p role = "status">{{ message }}</p>
+        {% endfor %}
+  
+        <form method = "post" action = "{{ url_for('signup') }}">
+            <input type = "hidden" name = "csrf_token" value = "{{ csrf_token }}">
+            <div class = "form-field">
+                <label for = "username">Username</label>
+                <input type = "text" value = "{{ username }}" id = "username" name = "username" autocomplete = "username" minlength = "3" maxlength = "30" pattern = "[A-Za-z0-9_]+" required aria-describedby = "username-help">
+
+                <small id = "username-help">
+                    Use 3-30 letters, numbers, or underscores.
+                </small>
+            </div>
+
+            <div class = "form-field">
+                <label for = "password">Password</label>
+                <input type = "password" id = "password" name = "password" autocomplete = "new-password" minlength = "8" required aria-describedby = "password-help">
+                <small id = "password-help">Use at least 8 characters.</small>
+            </div>
+
+            <button type = "submit">Create account</button>
+        </form>
+    </section>
+{% endblock %}

@@ -1,0 +1,43 @@
+.auth-panel {
+    max-width: 460px;
+    margin: 0 auto;
+}
+
+.form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.form-field input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px;
+    border: 1px solid #68547f;
+    border-radius: 8px;
+    background: #130e1d;
+    color: #f3f0fa;
+    font: inherit;
+}
+
+.form-field input:focus-visible {
+    outline: 2px solid #c4a1ff;
+    outline-offset: 2px;
+}
+
+.auth-panel button {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    background: #a879ed;
+    color: #130e1d;
+    font: inherit;
+    font-weight: bold;
+}
+
+.auth-panel button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}

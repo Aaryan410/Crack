@@ -2,9 +2,11 @@ from backend.engine.interview_engine import InterviewEngine
 from backend.session.interview import InterviewSession
 from backend.ai.evaluator import evaluate, evaluate_report
 from backend.store import session_store
-from flask import Flask, render_template, request, redirect, session as flask_session
+from backend.store.accounts import create_account
+from flask import Flask, render_template, request, redirect, session as flask_session, jsonify, abort, flash, url_for
 from dotenv import load_dotenv
-from flask import jsonify
+from psycopg import Error as DatabaseError
+import secrets
 import os
 import time
 import uuid
@@ -183,6 +185,54 @@ def dashboard():
     }
 
     return render_template("dashboard.html", stats = stats)
+
+
+@app.route("/signup", methods = ["GET", "POST"])
+def signup():
+    csrf_token = flask_session.get("csrf_token")
+
+    if csrf_token is None:
+        csrf_token = secrets.token_urlsafe(32)
+        flask_session["csrf_token"] = csrf_token
+
+    username = ""
+    error = None
+    status = 200
+
+    if request.method == "POST":
+        submitted_token = request.form.get("csrf_token", "")
+
+        if not secrets.compare_digest(
+            submitted_token.encode("utf-8"),
+            csrf_token.encode("utf-8"),
+        ): 
+            abort(400, description = "Invalid form submission. Reload and try again.")
+
+        username = request.form.get("username", "")
+        password = request.form.get("password", "")
+
+        try:
+            create_account(username, password)
+
+        except ValueError as exc:
+            error = str(exc)
+            status = 400
+
+        except DatabaseError:
+            app.logger.exception("Account creation failed")
+            error = "We couldn't create your account. Please try again."
+            status = 503
+
+        else:
+            flash("Your account was created successfully.")
+            return redirect(url_for("signup"))
+
+    return render_template (
+        "signup.html",
+        csrf_token = csrf_token,
+        username = username,
+        error = error,
+    ), status
 
 
 if __name__ == "__main__":
