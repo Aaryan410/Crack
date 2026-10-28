@@ -7,6 +7,10 @@
 {% endblock %}
 
 {% block content %}
+    {% if session.get("user_id") %}
+        <p>Sign in as {{ session.get("username") }}</p>
+    {% endif %}
+
     <section>
         <p>Your interview practice, in one place</p>
 
@@ -16,7 +20,7 @@
             Practice for your next interview and review your progress.
         </p>
 
-        <a href = "{{ url_for('home') }}">Choose a practice role</a>
+        <a href = "{{ url_for('practice') }}">Choose a practice role</a>
     </section>
 
     <section>

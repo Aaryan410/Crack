@@ -16,7 +16,16 @@
 
             <nav aria-label = "Main navigation">
                 <a href = "{{ url_for('dashboard') }}">Dashboard</a>
-                <a href = "{{ url_for('home') }}">Practice interview</a>
+                <a href = "{{ url_for('practice') }}">Practice interview</a>
+
+                {% if session.get("user_id") %}
+                    <form method = "post" action = "{{ url_for('logout') }}" class = "logout-form">
+                        <input type = "hidden" name = "csrf_token" value = "{{ session.get('csrf_token', '') }}">
+                        <button type = "submit">Log out</button>
+                    </form>
+                {% else %}
+                    <a href = "{{ url_for('login') }}">Log in</a>
+                {% endif %}
             </nav>
         </header>
 

@@ -70,3 +70,25 @@ p {
 main a {
     color: #c4b5fd;
 }
+
+.logout-form {
+    margin: 0;
+}
+
+.logout-form button {
+    padding: 0;
+    border: none;
+    background: transparent;
+    color: #c4a1ff;
+    font: inherit;
+    cursor: pointer;
+}
+
+.logout-form button:hover {
+    text-decoration: underline;
+}
+
+.logout-form button:focus-visible {
+    outline: 2px solid #c4a1ff;
+    outline-offset: 4px;
+}

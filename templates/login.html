@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block title %}Log in | Crack{% endblock %}
+
+{% block styles %}
+    <link rel = "stylesheet" href = "{{ url_for('static', filename = 'css/auth.css') }}">
+{% endblock %}
+
+{% block content %}
+<section class = "auth-panel">
+    <h1>Welcome back</h1>
+    <p>Log in to continue your interview practice.</p>
+
+    {% if error %}
+        <p role = "alert">{{ error }}</p>
+    {% endif %}
+
+    {% for message in get_flashed_messages() %}
+        <p role = "status">{{ message }}</p>
+    {% endfor %}
+
+    <form method = "post" action = "{{ url_for('login') }}">
+        <input type = "hidden" name = "csrf_token" value = "{{ csrf_token }}">
+
+        <div class = "form-field">
+            <label for = "username">Username</label>
+            <input type = "text" id = "username" name = "username" value = "{{ username }}" autocomplete = "username" maxlength = "30" required>
+        </div>
+
+        <div class = "form-field">
+            <label for = "password">Password</label>
+            <input type = "password" id = "password" name = "password" autocomplete = "current-password" maxlength = "128" required>
+        </div>
+        
+        <button type = "submit">Log in</button>
+    </form>
+
+    <p>
+        Need an account?
+        <a href = "{{ url_for('signup') }}">Create one</a>
+    </p>
+</section>
+{% endblock %}

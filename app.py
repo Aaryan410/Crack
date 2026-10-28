@@ -2,10 +2,11 @@ from backend.engine.interview_engine import InterviewEngine
 from backend.session.interview import InterviewSession
 from backend.ai.evaluator import evaluate, evaluate_report
 from backend.store import session_store
-from backend.store.accounts import create_account
+from backend.store.accounts import create_account, authenticate_account
 from flask import Flask, render_template, request, redirect, session as flask_session, jsonify, abort, flash, url_for
 from dotenv import load_dotenv
 from psycopg import Error as DatabaseError
+from functools import wraps
 import secrets
 import os
 import time
@@ -21,12 +22,33 @@ def get_current_interview():
     id = flask_session.get("interview")
     return session_store.load_interview(id)
 
+
+def login_required(view):
+    @wraps(view)
+    def wrapped_view(*args, **kwargs):
+        if not flask_session.get("user_id"):
+            return redirect(url_for("login"))
+
+        return view(*args, **kwargs)
+
+    return wrapped_view
+
 @app.route("/")
 def home():
+    if not flask_session.get("user_id"):
+        return redirect(url_for("login"))
+
+    return render_template("dashboard")
+
+
+@app.route("/practice")
+@login_required
+def practice():
     return render_template("index.html")
 
 
 @app.route("/start", methods = ["GET", "POST"])
+@login_required
 def start():
     if request.method == "GET":
         return redirect("/")
@@ -177,6 +199,7 @@ def generate_report():
 
 
 @app.route("/dashboard")
+@login_required
 def dashboard():
     stats = {
         "completed": None,
@@ -224,8 +247,8 @@ def signup():
             status = 503
 
         else:
-            flash("Your account was created successfully.")
-            return redirect(url_for("signup"))
+            flash("Your account was created successfully. Please log in")
+            return redirect(url_for("login"))
 
     return render_template (
         "signup.html",
@@ -233,6 +256,82 @@ def signup():
         username = username,
         error = error,
     ), status
+
+
+@app.route("/login", methods = ["GET", "POST"])
+def login():
+    csrf_token = flask_session.get("csrf_token")
+
+    if csrf_token is None:
+        csrf_token = secrets.token_urlsafe(32)
+        flask_session["csrf_token"] = csrf_token
+
+    username = ""
+    error = None
+    status = 200
+
+    if request.method == "POST":
+        submitted_token = request.form.get("csrf_token", "")
+
+        if not secrets.compare_digest(
+            submitted_token.encode("utf-8"),
+            csrf_token.encode("utf-8"),
+        ): 
+            abort(
+                400,
+                description = "Invalid from submission. Reload and try again.",
+            )
+
+        username = request.form.get("username", "")
+        password = request.form.get("password", "")
+
+        try:
+            account = authenticate_account(username, password)
+
+        except DatabaseError:
+            app.longer.exception("Login failed")
+            error = "We couldn't sign you in. Please try again."
+            status = 503
+
+        else:
+            if account is None:
+                error = "Incorrect username or password."
+                status = 401
+
+            else:
+                flask_session.clear()
+                flask_session["user_id"] = account["id"]
+                flask_session["username"] = account["username"]
+                flask_session["csrf_token"] = secrets.token_urlsafe(32)
+
+                return redirect(url_for("dashboard"))
+
+    return render_template(
+        "login.html",
+        csrf_token = csrf_token,
+        username = username,
+        error = error,
+    ), status
+
+
+@app.route("/logout", methods = ["POST"])
+@login_required
+def logout():
+    csrf_token = flask_session.get("csrf_token", "")
+    submitted_token = request.form.get("csrf_token", "")
+
+    if not csrf_token or not secrets.compare_digest(
+        submitted_token.encode("utf-8"),
+        csrf_token.encode("utf-8"),
+    ): 
+        abort(
+            400,
+            description = "Invalid form submission. Reload and try again.",
+        )
+
+    flask_session.clear()
+
+    return redirect(url_for("login"))
 
 
 if __name__ == "__main__":
