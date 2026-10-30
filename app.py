@@ -3,6 +3,7 @@ from backend.session.interview import InterviewSession
 from backend.ai.evaluator import evaluate, evaluate_report
 from backend.store import session_store
 from backend.store.accounts import create_account, authenticate_account
+from backend.store.interviews import save_completed_interview
 from flask import Flask, render_template, request, redirect, session as flask_session, jsonify, abort, flash, url_for
 from dotenv import load_dotenv
 from psycopg import Error as DatabaseError
@@ -38,7 +39,7 @@ def home():
     if not flask_session.get("user_id"):
         return redirect(url_for("login"))
 
-    return render_template("dashboard")
+    return redirect(url_for("dashboard"))
 
 
 @app.route("/practice")
@@ -81,6 +82,7 @@ def start():
 
 
 @app.route("/answer", methods = ["POST"])
+@login_required
 def answer():
     engine, session = get_current_interview()
 
@@ -132,20 +134,18 @@ def answer():
 
 
 @app.route("/evaluating", methods = ["GET"])
+@login_required
 def evaluating():
     engine, session = get_current_interview()
-    interview_id = flask_session.get("interview")
 
     if engine is None or session is None:
         return redirect("/")
-
-    if session.report is not None:
-        return redirect("/report")
 
     return render_template("evaluating.html")
 
 
 @app.route("/report")
+@login_required
 def report():
 
     engine, session = get_current_interview()
@@ -175,6 +175,11 @@ def report():
 
 @app.route("/generate-report", methods = ["POST"])
 def generate_report():
+    account_id = flask_session.get("user_id")
+
+    if not account_id:
+        return jsonify(error = "Please log in again."), 401
+
     engine, session = get_current_interview()
     interview_id = flask_session.get("interview")
 
@@ -194,6 +199,37 @@ def generate_report():
 
         session.report = report_data
         session_store.save_interview(interview_id, engine, session)
+
+    overall_score = session.report.get("overall_score")
+
+    if (
+        type(overall_score) not in (int, float)
+        or not 0 <= overall_score <= 100
+    ):
+        return jsonify(
+            error = "This interview has no valid overall score to save."
+        ), 503
+
+    duration_seconds = max(
+        0,
+        int((session.ended_at - session.started_at).total_seconds()),
+    )
+
+    try:
+        save_completed_interview(
+            interview_id = interview_id,
+            account_id = account_id,
+            role = session.role,
+            overall_score = overall_score,
+            questions_answered = len(session.answers),
+            duration_seconds = duration_seconds,
+        )
+    except DatabaseError:
+        app.logger.exception("Saving completed interview failed")
+
+        return jsonify(
+            error = "Your report was generated, but saving it failed. Please retry."
+        ), 503
 
     return jsonify(redirect_url = "/report")
 
@@ -289,7 +325,7 @@ def login():
             account = authenticate_account(username, password)
 
         except DatabaseError:
-            app.longer.exception("Login failed")
+            app.logger.exception("Login failed")
             error = "We couldn't sign you in. Please try again."
             status = 503
 
