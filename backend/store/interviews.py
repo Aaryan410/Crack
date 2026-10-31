@@ -148,7 +148,7 @@ def get_dashboard_data(account_id):
 
     return {
         "stats": stats,
-        "interview": interviews,
+        "interviews": interviews,
         "chart_points": chart_points,
         "chart_line": chart_line,
     }

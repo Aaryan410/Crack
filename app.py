@@ -268,7 +268,7 @@ def dashboard():
                 "average": None,
                 "best": None,
             },
-            "interview": [],
+            "interviews": [],
             "chart_points": [],
             "chart_line": "",
         }

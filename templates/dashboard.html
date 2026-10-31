@@ -29,7 +29,7 @@
     {% endif %}
 
     <section class = "dashboard-stats" aria-label = "Interview statistics">
-        <div class = "starts-grid">
+        <div class = "stats-grid">
             <article class = "stat-card">
                 <h2>Completed interviews</h2>
 
@@ -77,10 +77,10 @@
     <section class = "dashboard-chart">
         <h2>Your score progress</h2>
         <p class = "muted">
-            Your latest 10 minutes, from oldest to newest.
+            Your latest 10 interviews, from oldest to newest.
         </p>
 
-        {% if chart_updates %}
+        {% if chart_points %}
             <div class = "chart-scroll">
                 <svg class = "score-chart" viewBox = "0 0 640 240" role = "img" aria-labelledby = "score-chart-title score-chart-description">
                     <title id = "score-chart-title">
@@ -162,7 +162,7 @@
                             <tr>
                                 <td>{{ interview.role_label }}</td>
 
-                                <td clas = "history-score">
+                                <td class = "history-score">
                                     {{ "%.1f"|format(interview.overall_score) }} 
                                     / 100
                                 </td>
