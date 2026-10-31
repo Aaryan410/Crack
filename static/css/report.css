@@ -194,6 +194,24 @@ body {
     box-shadow: 0 0 20px rgba(109, 40, 217, 0.5);
 }
 
+.report-dashboard-link {
+    display: inline-block;
+    padding: 12px 20px;
+    border: 1px solid #68547f;
+    border-radius: 8px;
+    color: #c4a1ff;
+    text-decoration: none;
+}
+
+.report-dashboard-link:hover {
+    background: #251c35;
+}
+
+.report-dashboard-link:focus-visible {
+    outline: 2px solid #c4a1ff;
+    outline-offset: 3px;
+}
+
 @media (max-width: 700px) {
     .score-row {
         grid-template-columns: repeat(2, 1fr);

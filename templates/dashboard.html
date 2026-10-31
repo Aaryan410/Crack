@@ -7,44 +7,188 @@
 {% endblock %}
 
 {% block content %}
-    {% if session.get("user_id") %}
-        <p>Sign in as {{ session.get("username") }}</p>
-    {% endif %}
-
-    <section>
-        <p>Your interview practice, in one place</p>
-
-        <h1>Dashboard</h1>
-
-        <p>
-            Practice for your next interview and review your progress.
-        </p>
-
-        <a href = "{{ url_for('practice') }}">Choose a practice role</a>
-    </section>
-
-    <section>
-        <h2>Your progress</h2>
-
-        <div class = "status-grid">
-            <article class = "stat-card">
-                <h3>Interview completed</h3>
-                <p class = "stat-value">{{ stats.completed if stats.completed is not none else "-" }}</p>
-            </article>
-
-            <article class = "stat-card">
-                <h3>Average score</h3>
-                <p class = "stat-value">{{ stats.average if stats.average is not none else "-" }}</p>
-            </article>
-
-            <article class = "stat-card">
-                <h3>Best score</h3>
-                <p class = "stat-value">{{ stats.best if stats.best is not none else "-" }}</p>
-            </article>
+    <section class = "dashboard-hero">
+        <div>
+            <p class = "eyebrow">YOUR INTERVIEW PRACTICE</p>
+            <h1>Dashboard</h1>
+            <p>
+                Welcome back, {{ session.get("username") }}.
+                Track your results and keep improving.
+            </p>
         </div>
 
-        <p class = "stats-note">
-            Statistics will appear here once we connect saved interview data.
+        <a class = "dashboard-button" href = "{{ url_for('practice') }}">
+            Start an interview
+        </a>
+    </section>
+
+    {% if dashboard_error %}
+        <p class = "dashboard-error" role = "alert">
+            {{ dashboard_error }}
         </p>
+    {% endif %}
+
+    <section class = "dashboard-stats" aria-label = "Interview statistics">
+        <div class = "starts-grid">
+            <article class = "stat-card">
+                <h2>Completed interviews</h2>
+
+                <p class = "stat-value">
+                    {{ stats.completed
+                        if stats.completed is not none
+                        else "-" }}
+                </p>
+
+                <p>All your saved interview</p>
+            </article>
+
+            <article class = "stat-card">
+                <h2>Average score</h2>
+
+                <p class = "stat-value">
+                    {% if stats.average is not none %}
+                        {{ "%.1f"|format(stats.average) }}
+                        <span>/ 100</span>
+                    {% else %}
+                        -
+                    {% endif %}
+                </p>
+
+                <p>Across all completed interviews</p>
+            </article>
+
+            <article class = "stat-card">
+                <h2>Best score</h2>
+
+                <p class = "stat-value">
+                    {% if stats.best is not none %}
+                        {{ "%.1f"|format(stats.best) }}
+                        <span>/ 100</span>
+                    {% else %}
+                        -
+                    {% endif %}
+                </p>
+
+                <p>Your highest overall score</p>
+            </article>
+        </div>
+    </section>
+
+    <section class = "dashboard-chart">
+        <h2>Your score progress</h2>
+        <p class = "muted">
+            Your latest 10 minutes, from oldest to newest.
+        </p>
+
+        {% if chart_updates %}
+            <div class = "chart-scroll">
+                <svg class = "score-chart" viewBox = "0 0 640 240" role = "img" aria-labelledby = "score-chart-title score-chart-description">
+                    <title id = "score-chart-title">
+                        Recent interview scores
+                    </title>
+
+                    <desc id = "score-chart-title">
+                        Scores range from zero to one hundred.
+                        Interviews run from oldest to the left
+                        to newest on the right.
+                        The history table contains the individual scores.
+                    </desc>
+
+                    {% for level in [0, 50, 100] %}
+                        {% set y = 200 - level / 100 * 176 %}
+                            <line class = "chart-grid" x1 = "48" y1 = "{{ y }}" x2 = "616" y2 = "{{ y }}" />
+
+                            <text class = "chart-label" x = "36" y = "{{ y + 4 }}" text-anchor = "end">
+                                {{ level }}
+                            </text>
+
+                    {% endfor %}
+
+                    {% if chart_points|length > 1 %}
+                        <polyline class = "chart-line" points = "{{ chart_line }}" />
+                    {% endif %}
+
+                    {% for point in chart_points %}
+                        <circle class = "chart-dot" cx = "{{ point.x }}" cy = "{{ point.y }}" r = "5">
+                            <title>
+                                {{ point.role }}:
+                                {{ "%.1f"|format(point.score) }}/100
+                            </title>
+                        </circle>
+
+                        <text class = "chart-label" x = "{{ point.x }}" y = "224" text-anchor = "middle">
+                            {{ point.number }}
+                        </text>
+                    {% endfor %}
+                </svg>
+            </div>
+
+            <p class = "muted">
+                Hover over a point to see its role and score.
+            </p>
+
+        {% elif not dashboard_error %}
+            <div class = "empty-state">
+                <p>Your progress graph will appear after your first interview.</p>
+
+                <a href = "{{ url_for('practice') }}">
+                    Choose a role to get started
+                </a>
+            </div>
+        {% endif %}
+    </section>
+
+    <section class = "dashboard-history">
+        <h2>Recent interviews</h2>
+        <p class = "muted">
+            Your latest 10 completed interviews. Dates are shown in UTC.
+        </p>
+
+        {% if interviews %}
+            <div class = "table-scroll">
+                <table>
+                    <thead>
+                        <tr>
+                            <th scope = "col">Role</th>
+                            <th scope = "col">Score</th>
+                            <th scope = "col">Questions</th>
+                            <th scope = "col">Duration</th>
+                            <th scope = "col">Completed</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        {% for interview in interviews %}
+                            <tr>
+                                <td>{{ interview.role_label }}</td>
+
+                                <td clas = "history-score">
+                                    {{ "%.1f"|format(interview.overall_score) }} 
+                                    / 100
+                                </td>
+
+                                <td>
+                                    {{ interview.questions_answered }}
+                                </td>
+
+                                <td>
+                                    {{ interview.duration_label }}
+                                </td>
+
+                                <td>
+                                    {{ interview.completed_label }}
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+        {% elif not dashboard_error %}
+            <div class = "empty-state">
+                <p>You haven't completed an interview yet.</p>
+                <p>Your saved results will appear here.</p>
+            </div>
+        {% endif %}
     </section>
 {% endblock %}

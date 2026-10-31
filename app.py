@@ -3,7 +3,7 @@ from backend.session.interview import InterviewSession
 from backend.ai.evaluator import evaluate, evaluate_report
 from backend.store import session_store
 from backend.store.accounts import create_account, authenticate_account
-from backend.store.interviews import save_completed_interview
+from backend.store.interviews import (save_completed_interview, get_dashboard_data)
 from flask import Flask, render_template, request, redirect, session as flask_session, jsonify, abort, flash, url_for
 from dotenv import load_dotenv
 from psycopg import Error as DatabaseError
@@ -186,7 +186,7 @@ def generate_report():
     if engine is None or session is None:
         return jsonify(error = "Your interview has expired."), 410
 
-    if session.ended_at is None:
+    if session.started_at is None or session.ended_at is None:
         return jsonify(error = "The interview has not finished yet."), 409
 
     if session.report is None:
@@ -199,6 +199,12 @@ def generate_report():
 
         session.report = report_data
         session_store.save_interview(interview_id, engine, session)
+
+
+    if not isinstance(session.report, dict):
+        return jsonify(
+            error = "The generated report has an invalid format."
+        ), 503
 
     overall_score = session.report.get("overall_score")
 
@@ -223,6 +229,8 @@ def generate_report():
             overall_score = overall_score,
             questions_answered = len(session.answers),
             duration_seconds = duration_seconds,
+            report = session.report,
+            answers = session.answers,
         )
     except DatabaseError:
         app.logger.exception("Saving completed interview failed")
@@ -237,13 +245,39 @@ def generate_report():
 @app.route("/dashboard")
 @login_required
 def dashboard():
-    stats = {
-        "completed": None,
-        "average": None,
-        "best": None
-    }
+    dashboard_error = None
+    status = 200
 
-    return render_template("dashboard.html", stats = stats)
+    try:
+        data = get_dashboard_data(
+            flask_session["user_id"]
+        )
+
+    except DatabaseError:
+        app.logger.exception("Loading dashboard failed")
+
+        dashboard_error = (
+            "We couldn't load your interview history. Please try again."
+        )
+
+        status = 503
+
+        data = {
+            "stats": {
+                "completed": None,
+                "average": None,
+                "best": None,
+            },
+            "interview": [],
+            "chart_points": [],
+            "chart_line": "",
+        }
+
+    return render_template(
+        "dashboard.html",
+        dashboard_error = dashboard_error,
+        **data,
+    ), status
 
 
 @app.route("/signup", methods = ["GET", "POST"])
