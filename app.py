@@ -4,7 +4,8 @@ from backend.ai.evaluator import evaluate, evaluate_report
 from backend.store import session_store
 from backend.store.accounts import create_account, authenticate_account
 from backend.store.interviews import (save_completed_interview, get_dashboard_data)
-from flask import Flask, render_template, request, redirect, session as flask_session, jsonify, abort, flash, url_for
+from backend.report_pdf import build_report_pdf
+from flask import Flask, render_template, request, redirect, session as flask_session, jsonify, abort, flash, url_for, send_file
 from dotenv import load_dotenv
 from psycopg import Error as DatabaseError
 from functools import wraps
@@ -402,6 +403,35 @@ def logout():
     flask_session.clear()
 
     return redirect(url_for("login"))
+
+
+@app.route("/report/pdf")
+@login_required
+def download_report_pdf():
+    engine, interview = get_current_interview()
+
+    if engine is None or interview is None or interview.report is None:
+        abort(404, description = "Complete an interview to download its report.")
+
+    role = interview.role.replace("_", " ").title()
+    role = role.replace("Ai", "AI").replace("Ml", "ML")
+
+    pdf = build_report_pdf(
+        role = role,
+        questions_answered = engine.questions_asked,
+        duration = flask_session.get("interview_duration", 0),
+        report = interview.report,
+    )
+
+    response = send_file(
+        pdf,
+        mimetype = "application/pdf",
+        as_attachment = True,
+        download_name = "crack-interview-report.pdf",
+    )
+    response.headers["Cache-Control"] = "private, no-store"
+
+    return response
 
 
 if __name__ == "__main__":
