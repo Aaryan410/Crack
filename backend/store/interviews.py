@@ -4,6 +4,23 @@ from psycopg.types.json import Jsonb
 
 from datetime import timezone
 
+
+def get_recent_interviews(user_id):
+    with get_db_connection() as connection:
+        with connection.cursor() as cursor: 
+            cursor.execute(
+                """
+                select role, complete_at
+                from private.interview_results
+                where user_id = %s::uuid
+                order by completed_at desc, interview_id desc
+                limit 10
+                """,
+                (user_id,),
+            )
+            return cursor.fetchall()
+
+
 def save_completed_interview(
     *,
     interview_id,
