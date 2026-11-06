@@ -92,3 +92,25 @@ main a {
     outline: 2px solid #c4a1ff;
     outline-offset: 4px;
 }
+
+html[data-ui="ocean"] body {
+    background: #081827;
+    color: #e5f3ff;
+}
+
+html[data-ui="ocean"] header,
+html[data-ui="ocean"] section {
+    background: #10283e;
+    border-color: #30546d;
+}
+
+html[data-ui="ocean"] .stat-card {
+    background: #16334c;
+    border-color: #30546d;
+}
+
+html[data-ui="ocean"] a,
+html[data-ui="ocean"] .logout-form button {
+    color: #7dd3fc;
+}
+ 

@@ -1,0 +1,261 @@
+:root {
+    color-scheme: dark;
+    --bg: #0b0b0b;
+    --surface: #161616;
+    --raised: #242424;
+    --selected: #363636;
+    --text: #f5f5f5;
+    --muted: #bdbdbd;
+    --border: #666666;
+    --accent: #f0f0f0;
+    --on-accent: #111111;
+}
+
+:root[data-theme = "light"] {
+    color-scheme: light;
+    --bg: #ffffff;
+    --surface: #f5f5f5;
+    --raised: #ebebeb;
+    --selected: #d9d9d9;
+    --text: #111111;
+    --muted: #484848;
+    --border: #767676;
+    --accent: #171717;
+    --on-accent: #ffffff;
+}
+
+:root[data-theme = "matrix"] {
+    color-scheme: dark;
+    --bg: #020603;
+    --surface: #09150d;
+    --raised: #102319;
+    --selected: #153923;
+    --text: #b9ffcb;
+    --muted: #91c8a0;
+    --border: #43845c;
+    --accent: #56ff88;
+    --on-accent: #001a0a; 
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+}
+
+body > main > section,
+.question-card {
+    background: var(--surface);
+    border-color: var(--border);
+}
+
+header,
+.dashboard-history th,
+.dashboard-history td,
+.report-section {
+    border-color: var(--border);
+}
+
+nav {
+    align-items: center;
+}
+
+.stat-card,
+.role-card,
+.question-tag,
+.question-text,
+.score-card,
+.point-list li,
+.dashboard-history tbody tr:hover,
+.report-dashboard-link:hover {
+    background: var(--raised);
+    border-color: var(--border);
+}
+
+.timer,
+.score-card--primary,
+.role-card:hover,
+.role-card:has(input:checked) {
+    background: var(--selected);
+}
+
+.role-card:hover,
+.role-card:has(input:checked) {
+    box-shadow: 0 12px 30px rgb(0 0 0 / 18%);
+}
+
+.role-card:has(input:checked) {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}
+
+header > a,
+nav a:hover,
+.headline .black,
+.title,
+.question-tag,
+.question-text,
+.timer,
+.loading-text,
+.brand,
+.page-title,
+.score-value,
+.section-value,
+.section-text,
+.point-list li,
+.stat-value {
+    color: var(--text);
+}
+
+p,
+.subtitle,
+.desc,
+.role-label,
+.score-label,
+.section-text--muted,
+.stat-card h2,
+.stat-value span,
+.stat-card > p:last-child,
+.muted,
+.dashboard-history th,
+.empty-state,
+.answer-box::placeholder {
+    color: var(--muted);
+}
+
+nav a,
+main a,
+.logout-form button,
+.eyebrow,
+.eyebrow-label,
+.headline .violet,
+.section-label,
+.logo,
+.section-title,
+.history-score,
+.footer-link--download,
+.report-dashboard-link,
+.point-list--good li::before,
+.point-list--bad li::before,
+.point-list--rec li::before {
+    color: var(--accent);
+}
+
+.footer-link--download,
+.report-dashboard-link {
+    border-color: var(--border);
+}
+
+.eyebrow-rule,
+.timer-dot {
+    background: var(--accent);
+}
+
+.orb {
+    background: var(--accent);
+    opacity: 0.08;
+}
+
+.form-field input,
+.answer-box,
+.answer-box:focus,
+.theme-picker select {
+    background: var(--bg);
+    color: var(--text);
+    border-color: var(--border);
+}
+
+.answer-box:focus {
+    border-color: var(--accent);
+}
+
+.auth-panel button,
+.dashboard-button,
+.dashboard-button:hover,
+.cta,
+.cta:hover,
+.submit-button,
+.submit-button:hover,
+.footer-link--restart,
+.footer-link--restart:hover,
+.icon,
+#retry-button {
+    background: var(--accent);
+    color: var(--on-accent);
+    box-shadow: none;
+}
+
+.icon {
+    opacity: 1;
+}
+
+.icon-label,
+.cta-black,
+.cta-violet,
+.cta:hover .cta-black,
+.cta:hover .cta-violet,
+.submit-black,
+.submit-button:hover .submit-black {
+    color: var(--on-accent);
+}
+
+.cta:hover,
+.submit-button:hover,
+.footer-link--restart:hover,
+.dashboard-button:hover,
+.auth-panel button:hover {
+    box-shadow: 0 0 0 2px var(--bg), 0 0 0 4px var(--accent);
+}
+
+.dashboard-button:focus-visible,
+.logout-form button:focus-visible,
+.form-field input:focus-visible,
+.report-dashboard-link:focus-visible,
+.theme-picker select:focus-visible {
+    outline-color: var(--accent);
+}
+
+.chart-grid {
+    stroke: var(--border);
+}
+
+.chart-label {
+    fill: var(--muted);
+}
+
+.chart-line {
+    stroke: var(--accent);
+}
+
+.chart-dot {
+    fill: var(--accent);
+    stroke: var(--raised);
+}
+
+.spinner,
+.loader {
+    border-color: var(--border);
+    border-top-color: var(--accent);
+}
+
+.spinner {
+    border-right-color: var(--accent);
+}
+
+.dashboard-error {
+    background: var(--raised);
+    border-color: var(--accent);
+    color: var(--text);
+}
+
+.theme-picker {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--muted);
+}
+.theme-picker select {
+    padding: 6px 8px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    font: inherit;
+}

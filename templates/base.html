@@ -9,6 +9,7 @@
         <link rel = "stylesheet" href = "{{ url_for('static', filename = 'css/base.css') }}">
 
         {% block styles %}{% endblock %}
+        {% include "theme_head.html" %}
     </head>
     <body>
         <header>
@@ -26,6 +27,21 @@
                 {% else %}
                     <a href = "{{ url_for('login') }}">Log in</a>
                 {% endif %}
+
+                <label for = "ui-picker">UI</label>
+                <select id = "ui-picker">
+                    <option value = "default">Default</option>
+                    <option value = "ocean">Ocean</option>
+                </select>
+
+                <label class = "theme-picker">
+                    <span>Theme</span>
+                    <select id = "theme-picker">
+                        <option value = "dark">Dark</option>
+                        <option value = "light">Light</option>
+                        <option value = "matrix">Matrix</option>
+                    </select>
+                </label>
             </nav>
         </header>
 
