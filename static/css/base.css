@@ -92,3 +92,91 @@ main a {
     outline: 2px solid #c4a1ff;
     outline-offset: 4px;
 }
+
+html[data-ui="ocean"] body {
+    background: #081827;
+    color: #e5f3ff;
+}
+
+html[data-ui="ocean"] header,
+html[data-ui="ocean"] section {
+    background: #10283e;
+    border-color: #30546d;
+}
+
+html[data-ui="ocean"] .stat-card {
+    background: #16334c;
+    border-color: #30546c;
+}
+
+html[data-ui="ocean"] a,
+html[data-ui="ocean"] .logout-form button {
+    color: #7dd3fc;
+}
+
+html[data-ui="matrix"] {
+    color-scheme: dark;
+    --ui-background: #061009;
+    --ui-panel: #0d2014;
+    --ui-card: #142c1e;
+    --ui-border: #315c3e;
+    --ui-text: #e2fbe9;
+    --ui-muted: #aacbb3;
+    --ui-accent: #76ef9d;
+}
+
+html[data-ui="dark"] {
+    color-scheme: dark;
+    --ui-background: #141414;
+    --ui-panel: #202020;
+    --ui-card: #292929;
+    --ui-border: #454545;
+    --ui-text: #f5f5f5;
+    --ui-muted: #c2c2c2;
+    --ui-accent: #b9d5ff;
+}
+
+html[data-ui="white"] {
+    color-scheme: light;
+    --ui-background: #f4f6fa;
+    --ui-panel: #ffffff;
+    --ui-card: #edf1f7;
+    --ui-border: #c8d0dd;
+    --ui-text: #182233;
+    --ui-muted: #4b586d;
+    --ui-accent: #264db0;
+}
+
+html:is([data-ui="matrix"], [data-ui="dark"], [data-ui="white"]) body {
+    background: var(--ui-background);
+    color: var(--ui-text);
+}
+
+html:is([data-ui="matrix"], [data-ui="dark"], [data-ui="white"])
+:is(header, section) {
+    background: var(--ui-panel);
+    border-color: var(--ui-border);
+}
+
+html:is([data-ui="matrix"], [data-ui="dark"], [data-ui="white"]) .stat-card {
+    background: var(--ui-card);
+    border-color: var(--ui-border);
+    color: var(--ui-text);
+}
+
+html:is([data-ui="matrix"], [data-ui="dark"], [data-ui="white"])
+:is(p, small) {
+    color: var(--ui-muted);
+}
+
+html:is([data-ui="matrix"], [data-ui="dark"], [data-ui="white"])
+:is(header a, main a, .logout-form button) {
+    color: var(--ui-accent);
+}
+
+html:is([data-ui="matrix"], [data-ui="dark"], [data-ui="white"])
+:is(input:not([type="hidden"]), select, textarea) {
+    background: var(--ui-card);
+    border-color: var(--ui-border);
+    color: var(--ui-text);
+}

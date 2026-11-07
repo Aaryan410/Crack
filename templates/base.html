@@ -26,6 +26,15 @@
                 {% else %}
                     <a href = "{{ url_for('login') }}">Log in</a>
                 {% endif %}
+
+                <label for = "ui-picker">UI</label>
+                <select id = "ui-picker">
+                    <option value = "default">Default</option>
+                    <option value = "ocean">Ocean</option>
+                    <option value = "matrix">Matrix</option>
+                    <option value = "dark">Dark</option>
+                    <option value = "white">White</option>
+                </select>
             </nav>
         </header>
 
@@ -34,5 +43,33 @@
         </main>
 
         {% block scripts %}{% endblock %}
+
+        <script>
+            const uiPicker = document.getElementById("ui-picker");
+            const storageKey = "crack-ui";
+            const themeOptions = Array.from(uiPicker.options);
+
+            try {
+                const savedTheme = localStorage.getItem(storageKey);
+
+                if (themeOptions.some(option => option.value === savedTheme)) {
+                    uiPicker.value = savedTheme;
+                }
+            } catch {
+                uiPicker.value = "default";
+            }
+
+            document.documentElement.dataset.ui = uiPicker.value;
+
+            uiPicker.addEventListener("change", () => {
+                document.documentElement.dataset.ui = uiPicker.value;
+
+                try {
+                    localStorage.setItem(storageKey, uiPicker.value);
+                } catch {
+                    
+                }
+            });
+        </script>
     </body>
 </html>
