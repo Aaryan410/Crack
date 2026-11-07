@@ -7,8 +7,11 @@
 - I have stored questions in JSON files.
 - I have implemented a engine which pulls question from that JSON databases of questions.
 - After the questions are answered it is sent to AI for evaluation, i made a special prompt for it which is send to the AI.
-- I used Hack Club's AI APIs for this project, the AI the evaluates the answers is Claude Sonnet-5
-- So the only thing AI does is evaluation because there should be some sort of intelligence to evaluate the answers
+- I used Hack Club's AI APIs for this project, the AI the evaluates the answers is Claude Sonnet-5.
+- So the only thing AI does is evaluation because there should be some sort of intelligence to evaluate the answers.
+- It also shows interview history and a graph of progress.
+- It has 5 themes Default, Matrix, Ocean, Dark and White.
+- You will have to create an account to use it, no email or personal info required only use a unique username thats all and create a password.
 
 ## What is used?
 - I used Python for Backend.
@@ -17,7 +20,8 @@
 - Used Flask framework to connect backend with frontend.
 - Used HTML and CSS for frontend.
 - Used Javascript just for making the timer dynamic during interview.
-- Deployed on Render.
+- Uses Supabase to save account credentials and redis to save interview data.
+- Deployed on Vercel.
 
 ## Roles
 - AI Engineer
@@ -50,6 +54,19 @@
 
 ![Project Screenshot](image.png)
 
+## Themes
+- Well I have added 5 themes Default, Matrix, Ocean, Dark and White.
+- Dark preview,
+![Dark](image-1.png)
+- Matrix preview,
+![Matrix](image-2.png)
+- Dark preview,
+![Dark](image-3.png)
+- Ocean preview,
+![Ocean](image-4.png)
+- White preview,
+![White](image-5.png)
+
 ## Notes:
 - There are total of 4 difficulty levels Easy, Medium, Hard and Scenario.
 - Scenario based questions are basically about real life problems.
@@ -59,7 +76,7 @@
 - The difficulty and number of questions both are directly proportional to the average score of the user's response in previous questions.
 
 ## How to use?
-- Here is the URL -> https://crack-5jq3.onrender.com/
+- Here is the URL -> https://crack-smoky.vercel.app/dashboard
 - When homepage is displayed you have option to choose for which role you want to practice interview questions.
 - After choosing the role you have to click "Start Interview" option on the bottom-right corner of the page.
 - After that you will be taken to another route where your timer and interview session starts.
@@ -69,5 +86,6 @@
 
 ## How to use (locally)?
 - First Clone the repository on your computer.
-- From the project root run command "python app.py" or "py app.py" (i personally use "py app.py")
+- From the project root run command "python app.py" or "py app.py" (i personally use "py app.py").
+- Make .env file and hackclub ai api key, secret flask key by running command 'python -c "import secrets; print(secrets.token_hex(32))"' and paste that secret key. For Database url and database password, create your own Supabase project, run the SQL that creates private.accounts, set DATABASE_URL to the Transaction pooler URI with the password placeholder removed, and set DATABASE_PASSWORD to your project’s database password. Add HACKCLUB_API_KEY and SECRET_KEY to your .env, start Redis with REDIS_URL=redis://localhost:6379/0, then run python app.py. For reference see .env.example.
 - It will open a local development area browser on your computer where my project will be displayed.
